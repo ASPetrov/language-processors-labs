@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Формален език — Езикови процесори</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 2</small></div></header>
+<div class="layout">
+<nav><h3>Съдържание</h3><a href="index.html">Начало</a>
+<a class="active" href="formal-language.html">Формален език</a>
+<a href="grammar.html">Формална граматика</a>
+<a href="derivation.html">Извеждане на думи</a>
+<a href="chomsky.html">Класификация на Хомски</a>
+<a href="regular.html">Регулярни граматики</a>
+<a href="exercises.html">Упражнения</a>
+<a href="homework.html">Домашна работа</a>
+<a href="self-check.html">Самопроверка</a></nav>
+<main>
+<span class="tag">Лабораторно 2</span>
+<h1>Формален език</h1>
+<p class="lead">Преди граматиката са ни нужни три основни понятия: азбука, дума и език.</p>
+
+<h2>Азбука</h2>
+<p><b>Азбука</b> е крайно непразно множество от символи. Обикновено я означаваме със Σ.</p>
+<div class="example"><h3>Пример</h3><pre>Σ = { a, b }</pre>
+<p>Символите <code>a</code> и <code>b</code> са елементите на азбуката.</p></div>
+
+<h2>Дума</h2>
+<p><b>Дума</b> е крайна последователност от символи от дадена азбука.</p>
+<table><tr><th>Последователност</th><th>Дума над Σ = {a,b}?</th></tr>
+<tr><td><code>abba</code></td><td>Да</td></tr>
+<tr><td><code>bbb</code></td><td>Да</td></tr>
+<tr><td><code>abc</code></td><td>Не — <code>c</code> не е в Σ</td></tr></table>
+<div class="note">
+<p>Празната дума се означава с <b>ε</b>.</p>
+</div>
+<h2>Език</h2>
+<p><b>Формален език</b> е множество от думи над дадена азбука.</p>
+<div class="example"><h3>Примерен език</h3>
+<pre>L = { b, ab, aab, aaab, ... }</pre>
+<p>Всички думи завършват на <code>b</code>, а преди него могат да имат произволен брой символи <code>a</code>.</p></div>
+
+<div class="quiz"><b>Провери се:</b> Думата <code>aaba</code> принадлежи ли на езика L по-горе?<br>
+<button onclick="toggleAnswer('fl1')">Отговор</button>
+<div id="fl1" class="answer">Не. Думите от този език трябва да завършват на <code>b</code>.</div></div>
+
+<div class="pager"><a class="btn secondary" href="index.html">← Назад</a><a class="btn" href="grammar.html">Напред →</a></div>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

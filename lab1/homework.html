@@ -1,0 +1,47 @@
+<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Домашно и самопроверка — Езикови процесори</title><link rel="stylesheet" href="style.css"></head>
+<body><header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 1</small></div></header>
+<div class="layout"><nav><h3>Съдържание</h3><a class="" href="index.html">Начало</a>
+<a class="" href="processors.html">Езикови процесори</a>
+<a class="" href="compiler-interpreter.html">Компилатор и интерпретатор</a>
+<a class="" href="toolchain.html">До изпълнима програма</a>
+<a class="" href="student-compiler.html">Учебният компилатор</a>
+<a class="" href="exercises.html">Упражнения</a>
+<a class="active" href="homework.html">Домашно и тест</a></nav><main><span class="tag">Лабораторно 1</span><h1>Домашно и самопроверка</h1><p class="lead">Домашното проверява дали разбираш архитектурата, а не дали си запомнил определения.</p>
+<div class="example"><h3>Домашна работа — „Анализирай програмата като компилатор“</h3>
+<pre>program {
+    int x = 5;
+    main() -> void {
+        int y = 10;
+        print(x + y);
+    }
+}</pre>
+<ol>
+    <li>Начертай пътя на програмата през модулите на учебния компилатор.</li>
+    <li>За всеки модул напиши с едно изречение какво получава и какво произвежда или проверява.</li>
+    <li>Обясни каква е ролята на лексическия, синтактичния и семантичния анализатор.</li>
+    <li>Обясни с по едно изречение разликата между свързващ редактор и зареждаща програма.</li>
+    <li>Обясни защо учебният компилатор използва интерпретатор за виртуална машина.</li>
+</ol></div>
+<h2>Самопроверка</h2>
+<div class="quiz"><b>1.</b> Кой модул преобразува поток от символи в поток от лексеми?<br><button onclick="toggleAnswer('q1')">Отговор</button><div id="q1" class="answer">Лексическият анализатор.</div></div>
+<div class="quiz"><b>2.</b> Кой модул формира абстрактно синтактично дърво?<br><button onclick="toggleAnswer('q2')">Отговор</button><div id="q2" class="answer">Синтактичният анализатор.</div></div>
+<div class="quiz">
+    <b>3.</b> Къде се проверяват областите на видимост и съвместимостта на типовете?<br>
+    <button onclick="toggleAnswer('q3')">Отговор</button>
+    <div id="q3" class="answer">В семантичния анализатор.</div>
+</div>
+<div class="quiz">
+    <b>4.</b> Кой зарежда транслираната програма в оперативната памет?<br>
+    <button onclick="toggleAnswer('q4')">Отговор</button>
+    <div id="q4" class="answer">Зареждащата програма.</div>
+</div>
+<div class="quiz">
+    <b>5.</b> Кои са входният и инструменталният език на учебния компилатор?<br>
+    <button onclick="toggleAnswer('q5')">Отговор</button>
+    <div id="q5" class="answer">
+        Входният език е STUDENT, а инструменталният език е Java.
+    </div>
+</div>
+<div class="note"><b>За следващото упражнение:</b> формални граматики, езици и правилата, чрез които описваме синтаксиса.</div><div class="pager"><a class="btn secondary" href="exercises.html">← Назад</a><span></span></div></main></div>
+<script src="script.js"></script></body></html>
