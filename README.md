@@ -8,7 +8,7 @@ Static HTML laboratories. Open a lab's `index.html` directly in a browser; no in
 - [Lab 4 — STUDENT](lab4/index.html)
 - [Lab 5 — Lexical analysis](lab5/index.html)
 
-All labs load `shared/style.css`, which contains the common visual styles originally based on lab1. Changes to this file apply to every lab. Labs 3 and 5 also load their own `style.css` after the shared stylesheet for their interactive examples. JavaScript files remain in each lab's folder. Labs 3 and 5 have no footer.
+All labs load `shared/style.css`, which contains the common visual styles originally based on lab1. Changes to this file apply to every lab. Labs 3 and 5 also load their own `style.css` after the shared stylesheet for their interactive examples. All labs load `shared/script.js` for answer toggles and multiple-choice checks. Lab 3 then loads `lab3.js` for its automata and regular-expression exercises; lab 5 loads its own `script.js` for lexeme checks and the scanner. Labs 3 and 5 have no footer.
 
 When copying or publishing an individual lab, include the sibling `shared` folder as well. For example, keep `lab3/index.html` and `shared/style.css` at those relative paths.
 
