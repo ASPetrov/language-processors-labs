@@ -1,6 +1,6 @@
 # Language Processors — Laboratory Exercises
 
-Standalone static HTML laboratories. Open a lab's `index.html` directly in a browser; no installation, build step, or web server is required. Keep each lab's files together in its folder.
+Static HTML laboratories. Open a lab's `index.html` directly in a browser; no installation, build step, or web server is required. Keep the lab folders and `shared` together under the same parent folder.
 
 - [Lab 1 — Language processors](lab1/index.html)
 - [Lab 2 — Formal languages and grammars](lab2/index.html)
@@ -8,6 +8,8 @@ Standalone static HTML laboratories. Open a lab's `index.html` directly in a bro
 - [Lab 4 — STUDENT](lab4/index.html)
 - [Lab 5 — Lexical analysis](lab5/index.html)
 
-Each lab has its own `style.css` and JavaScript files. The stylesheet in `lab1` provides the visual base for the other labs; `lab3` and `lab5` retain additional styles for their interactive examples. Changes to `lab1/style.css` do not automatically propagate to the other copies. Labs 3 and 5 have no footer.
+All labs load `shared/style.css`, which contains the common visual styles originally based on lab1. Changes to this file apply to every lab. Labs 3 and 5 also load their own `style.css` after the shared stylesheet for their interactive examples. JavaScript files remain in each lab's folder. Labs 3 and 5 have no footer.
+
+When copying or publishing an individual lab, include the sibling `shared` folder as well. For example, keep `lab3/index.html` and `shared/style.css` at those relative paths.
 
 The repository root intentionally has no landing page. When publishing the root with GitHub Pages, link directly to each lab (for example, `lab3/index.html`) from Microsoft Teams Classwork.
