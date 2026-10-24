@@ -1,2 +1,10 @@
+"use strict";
 
-function toggleAnswer(id){const e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}
+document.querySelectorAll("button[data-answer-target]").forEach(button => {
+    const answer = document.getElementById(button.dataset.answerTarget);
+    button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") !== "true";
+        answer.style.display = expanded ? "block" : "none";
+        button.setAttribute("aria-expanded", String(expanded));
+    });
+});

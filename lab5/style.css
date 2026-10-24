@@ -55,5 +55,4 @@ details{margin-top:16px}
 summary{cursor:pointer;color:#06764e;font-weight:700}
 .btn{border:0;cursor:pointer}
 button:disabled{opacity:.5;cursor:not-allowed}
-.menu-toggle{display:none}
 .actions{flex-wrap:wrap;align-items:center}

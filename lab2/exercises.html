@@ -28,21 +28,21 @@
 A → bA
 A → b</pre>
 <p>Определи N, T, P и S.</p>
-<button onclick="toggleAnswer('e1')">Провери</button>
+<button data-answer-target="e1" aria-controls="e1" aria-expanded="false">Провери</button>
 <div id="e1" class="answer">N = {S, A}; T = {a, b}; S е началният символ; P са трите продукционни правила.</div></div>
 
 <div class="example"><h3>Задача 2 — Извеждане</h3>
 <pre>S → aS
 S → b</pre>
 <p>Изведи думата <code>aaaab</code> стъпка по стъпка.</p>
-<button onclick="toggleAnswer('e2')">Провери</button>
+<button data-answer-target="e2" aria-controls="e2" aria-expanded="false">Провери</button>
 <div id="e2" class="answer">S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaaaS ⇒ aaaab</div></div>
 
 <div class="example"><h3>Задача 3 — Принадлежност към езика</h3>
 <pre>S → 0S
 S → 1</pre>
 <p>Кои от думите <code>1</code>, <code>001</code>, <code>0101</code>, <code>0001</code> принадлежат на езика?</p>
-<button onclick="toggleAnswer('e3')">Провери</button>
+<button data-answer-target="e3" aria-controls="e3" aria-expanded="false">Провери</button>
 <div id="e3" class="answer"><code>1</code>, <code>001</code> и <code>0001</code>. Думата <code>0101</code> не може да бъде изведена.</div></div>
 
 <div class="example"><h3>Задача 4 — Класификация</h3>
@@ -50,7 +50,7 @@ S → 1</pre>
 A → bS
 A → b</pre>
 <p>Към кой тип от йерархията на Хомски принадлежи граматиката? Обоснови отговора чрез формата на правилата.</p>
-<button onclick="toggleAnswer('e4')">Провери</button>
+<button data-answer-target="e4" aria-controls="e4" aria-expanded="false">Провери</button>
 <div id="e4" class="answer">Граматиката е регулярна (тип 3): правилата са дясно-линейни — терминал, евентуално последван от един нетерминал.</div></div>
 
 <div class="example"><h3>Задача 5 — Извеждане на програмна конструкция</h3>
@@ -59,7 +59,7 @@ body    → main
 main    → MAIN ( ) → VOID block
 block   → { }</pre>
 <p>Започни от <code>program</code> и получи крайната програмна конструкция, като записваш всяка междинна стъпка.</p>
-<button onclick="toggleAnswer('e5')">Провери</button>
+<button data-answer-target="e5" aria-controls="e5" aria-expanded="false">Провери</button>
 <div id="e5" class="answer"><code>program ⇒ PROGRAM { body } ⇒ PROGRAM { main } ⇒ PROGRAM { MAIN ( ) → VOID block } ⇒ PROGRAM { MAIN ( ) → VOID { } }</code></div></div>
 
 <div class="pager"><a class="btn secondary" href="regular.html">← Назад</a><a class="btn" href="homework.html">Напред →</a></div>

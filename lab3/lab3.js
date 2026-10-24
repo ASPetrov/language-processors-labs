@@ -2,7 +2,6 @@
 const $=id=>document.getElementById(id);
 const safe=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 function feedback(el,ok,message){el.textContent=message;el.className='feedback '+(ok?'ok':'bad');}
-document.querySelector('.menu-toggle')?.addEventListener('click',e=>{const n=$('sidenav');n.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',String(n.classList.contains('open')))});
 $('set-show')?.addEventListener('click',()=>{const results={union:'{a, b, 0, 1}',concat:'{a0, a1, b0, b1}',star:'{ε, a, b, aa, ab, ba, bb}'};$('set-output').textContent=results[$('set-operation').value]});
 const examples={'a*':'ε, a, aa, aaa, ...','ab':'ab','a|b':'a, b','(ab)*':'ε, ab, abab, ...','ab*':'a, ab, abb, ...'};
 function selectedRegex(){return $('regex-select')?.value}

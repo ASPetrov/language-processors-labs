@@ -36,11 +36,11 @@ S → b</pre></div>
 <p>На всяка стъпка заменяме нетерминала <code>S</code> с дясната страна на едно от правилата.</p>
 
 <div class="quiz"><b>Задача:</b> Може ли чрез същата граматика да се получи <code>aaab</code>?<br>
-<button onclick="toggleAnswer('d1')">Покажи извеждането</button>
+<button data-answer-target="d1" aria-controls="d1" aria-expanded="false">Покажи извеждането</button>
 <div id="d1" class="answer"><code>S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaab</code></div></div>
 
 <div class="quiz"><b>Задача:</b> Може ли да се получи <code>aba</code>?<br>
-<button onclick="toggleAnswer('d2')">Отговор</button>
+<button data-answer-target="d2" aria-controls="d2" aria-expanded="false">Отговор</button>
 <div id="d2" class="answer">Не. Единственото правило, което премахва <code>S</code>, завършва думата с <code>b</code>.</div></div>
 
 <div class="note"><b>За изпита:</b> следи внимателно кой нетерминал се заменя на всяка стъпка и с кое продукционно правило. Не прескачай междинните форми.</div>

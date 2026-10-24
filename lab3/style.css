@@ -45,9 +45,6 @@ p code,li code{background:#f0f0f0;padding:2px 5px}
 .feedback{font-weight:bold;min-height:1.4em}
 .feedback.ok{color:#087f4f}
 .feedback.bad{color:#a12c21}
-.texttask input{padding:12px;width:min(100%,490px);border:1px solid #aaa;border-radius:4px;margin-right:8px}
-.scanner-source{font:20px monospace;background:#fff;padding:15px;white-space:pre-wrap}
-.scanner-source .current{background:#ffe083;outline:2px solid #dca000}
 .tokenstream{min-height:50px;display:flex;gap:7px;flex-wrap:wrap}
 .token{background:#d9eee1;border:1px solid #04aa6d;border-radius:4px;padding:5px 9px;font:13px monospace}
 .actions{display:flex;gap:10px;margin-top:16px}
@@ -55,6 +52,8 @@ details{margin-top:16px}
 summary{cursor:pointer;color:#06764e;font-weight:700}
 .btn{border:0;cursor:pointer}
 button:disabled{opacity:.5;cursor:not-allowed}
-.menu-toggle{display:none}
 .actions{flex-wrap:wrap;align-items:center}
-select,input:not([type=radio]):not([type=checkbox]){padding:10px;border:1px solid #aab2b5;border-radius:5px;font:inherit;max-width:100%}select{background:white}input{margin:5px}button:disabled{opacity:.5;cursor:not-allowed}.choice{display:inline-flex;align-items:center;gap:5px;padding:8px 12px;background:#fff;margin:4px;border-radius:4px}.automaton{width:100%;max-width:640px;height:auto;display:block;background:white;border-radius:6px}.automaton circle{fill:#fff;stroke:#263c35;stroke-width:2.5}.automaton path{stroke:#263c35;stroke-width:2.5;fill:none}.automaton text{font:16px Arial;text-anchor:middle;fill:#20322a}.automaton .active-state{fill:#b8e8cd;stroke:#04aa6d;stroke-width:4}.automaton .active-edge{stroke:#04aa6d;stroke-width:4}.automaton-panel{margin:18px 0;background:white;padding:15px;border-radius:6px;min-height:90px}.automaton-panel svg{width:100%;max-width:720px;height:auto}.automaton-panel svg circle{fill:white;stroke:#333;stroke-width:2}.automaton-panel svg circle.active{fill:#b7eccf;stroke:#04aa6d;stroke-width:4}.automaton-panel svg path{fill:none;stroke:#333;stroke-width:2.3}.automaton-panel svg path.active{stroke:#04aa6d;stroke-width:4}.automaton-panel svg text{font:15px Arial;text-anchor:middle}.muted{font-size:14px;color:#59665e}.lab-task label{display:inline-flex;align-items:center}.lab-task input:not([type=checkbox]){min-width:240px}.lab-task .btn{margin:8px}.actions{flex-wrap:wrap;align-items:center}#builder label{display:block;margin:9px 0}#builder label select{margin-left:10px}@media(max-width:800px){.automaton-panel{padding:6px}.actions label{width:100%}}
+select,input:not([type=radio]):not([type=checkbox]){padding:10px;border:1px solid #aab2b5;border-radius:5px;font:inherit;max-width:100%}select{background:white}input{margin:5px}.choice{display:inline-flex;align-items:center;gap:5px;padding:8px 12px;background:#fff;margin:4px;border-radius:4px}.automaton{width:100%;max-width:640px;height:auto;display:block;background:white;border-radius:6px}.automaton circle{fill:#fff;stroke:#263c35;stroke-width:2.5}.automaton path{stroke:#263c35;stroke-width:2.5;fill:none}.automaton text{font:16px Arial;text-anchor:middle;fill:#20322a}.automaton .active-state{fill:#b8e8cd;stroke:#04aa6d;stroke-width:4}.automaton .active-edge{stroke:#04aa6d;stroke-width:4}.automaton-panel{margin:18px 0;background:white;padding:15px;border-radius:6px;min-height:90px}.automaton-panel svg{width:100%;max-width:720px;height:auto}.automaton-panel svg circle{fill:white;stroke:#333;stroke-width:2}.automaton-panel svg circle.active{fill:#b7eccf;stroke:#04aa6d;stroke-width:4}.automaton-panel svg path{fill:none;stroke:#333;stroke-width:2.3}.automaton-panel svg path.active{stroke:#04aa6d;stroke-width:4}.automaton-panel svg text{font:15px Arial;text-anchor:middle}.muted{font-size:14px;color:#59665e}.lab-task label{display:inline-flex;align-items:center}.lab-task input:not([type=checkbox]){min-width:240px}.lab-task .btn{margin:8px}#builder label{display:block;margin:9px 0}#builder label select{margin-left:10px}@media(max-width:800px){.automaton-panel{padding:6px}.actions label{width:100%}}
+
+/* Keep the inner accepting-state circle transparent, including during highlighting. */
+.automaton-panel svg circle[fill="none"]{fill:none}
