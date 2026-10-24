@@ -1,70 +1,110 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Упражнения в лабораторията — Езикови процесори</title><link rel="stylesheet" href="style.css"></head>
-<body><header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 1</small></div></header>
-<div class="layout"><nav><h3>Съдържание</h3><a class="" href="index.html">Начало</a>
-<a class="" href="processors.html">Езикови процесори</a>
-<a class="" href="compiler-interpreter.html">Компилатор и интерпретатор</a>
-<a class="" href="toolchain.html">До изпълнима програма</a>
-<a class="" href="student-compiler.html">Учебният компилатор</a>
-<a class="active" href="exercises.html">Упражнения</a>
-<a class="" href="homework.html">Домашно и тест</a></nav><main><span class="tag">Лабораторно 1</span><h1>Упражнения в лабораторията</h1><p class="lead">
-    Целта не е още сега да реализираш лексически или синтактичен анализатор,
-    а да разпознаваш отговорностите на отделните модули.
-</p>
-<div class="example"><h3>Задача 1 — Кой компонент?</h3><pre>program {
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Упражнения в лабораторията — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 1</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="processors.html">Езикови процесори</a>
+                <a class="" href="compiler-interpreter.html">Компилатор и интерпретатор</a>
+                <a class="" href="toolchain.html">До изпълнима програма</a>
+                <a class="" href="student-compiler.html">Учебният компилатор</a>
+                <a class="active" href="exercises.html">Упражнения</a>
+                <a class="" href="homework.html">Домашно и тест</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 1</span>
+                <h1>Упражнения в лабораторията</h1>
+                <p class="lead">
+                    Целта не е още сега да реализираш лексически или синтактичен анализатор, а да
+                    разпознаваш отговорностите на отделните модули.
+                </p>
+                <div class="example">
+                    <h3>Задача 1 — Кой компонент?</h3>
+                    <pre>
+program {
     main() -> void {
         int x = 10;
         int y = 20;
         print(x + y);
     }
 }</pre>
-<p>Определи кой компонент: (1) разпознава <code>int</code> като ключова дума; (2) проверява структурата на <code>main</code>; (3) проверява дали <code>x</code> е дефинирана; (4) генерира инструкции за виртуалната машина; (5) изпълнява инструкциите.</p>
-<button data-answer-target="e1" aria-controls="e1" aria-expanded="false">Провери</button><div id="e1" class="answer">
-    1 — Лексически анализатор;
-    2 — Синтактичен анализатор;
-    3 — Семантичен анализатор;
-    4 — Генератор на код;
-    5 — Интерпретатор за виртуалната машина.
-</div></div>
-<div class="example">
-    <h3>Задача 2 — Кой анализатор?</h3>
+                    <p>
+                        Определи кой компонент: (1) разпознава <code>int</code> като ключова дума;
+                        (2) проверява структурата на <code>main</code>; (3) проверява дали
+                        <code>x</code> е дефинирана; (4) генерира инструкции за виртуалната машина;
+                        (5) изпълнява инструкциите.
+                    </p>
+                    <button data-answer-target="e1" aria-controls="e1" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e1" class="answer">
+                        1 — Лексически анализатор; 2 — Синтактичен анализатор; 3 — Семантичен
+                        анализатор; 4 — Генератор на код; 5 — Интерпретатор за виртуалната машина.
+                    </div>
+                </div>
+                <div class="example">
+                    <h3>Задача 2 — Кой анализатор?</h3>
 
-    <p>Определи кой анализатор отговаря за всяка от следните задачи:</p>
+                    <p>Определи кой анализатор отговаря за всяка от следните задачи:</p>
 
-    <ol>
-        <li>Преобразува потока от символи в поток от лексеми.</li>
-        <li>Проверява дали потокът от лексеми образува валидно изречение на входния език.</li>
-        <li>Формира абстрактно синтактично дърво (AST).</li>
-        <li>Проверява областта на видимост на идентификаторите.</li>
-        <li>Проверява съвместимостта на типовете.</li>
-        <li>Формира символна таблица.</li>
-    </ol>
+                    <ol>
+                        <li>Преобразува потока от символи в поток от лексеми.</li>
+                        <li>
+                            Проверява дали потокът от лексеми образува валидно изречение на входния
+                            език.
+                        </li>
+                        <li>Формира абстрактно синтактично дърво (AST).</li>
+                        <li>Проверява областта на видимост на идентификаторите.</li>
+                        <li>Проверява съвместимостта на типовете.</li>
+                        <li>Формира символна таблица.</li>
+                    </ol>
 
-    <button data-answer-target="e2" aria-controls="e2" aria-expanded="false">Провери</button>
+                    <button data-answer-target="e2" aria-controls="e2" aria-expanded="false">
+                        Провери
+                    </button>
 
-    <div id="e2" class="answer">
-        1 — Лексически анализатор;<br>
-        2 — Синтактичен анализатор;<br>
-        3 — Синтактичен анализатор;<br>
-        4 — Семантичен анализатор;<br>
-        5 — Семантичен анализатор;<br>
-        6 — Семантичен анализатор.
-    </div>
-</div>
-<div class="example">
-    <h3>Задача 3 — Подреди етапите</h3>
+                    <div id="e2" class="answer">
+                        1 — Лексически анализатор;<br />
+                        2 — Синтактичен анализатор;<br />
+                        3 — Синтактичен анализатор;<br />
+                        4 — Семантичен анализатор;<br />
+                        5 — Семантичен анализатор;<br />
+                        6 — Семантичен анализатор.
+                    </div>
+                </div>
+                <div class="example">
+                    <h3>Задача 3 — Подреди етапите</h3>
 
-    <p>
-        Подреди в правилна последователност:
-        зареждаща програма, компилатор, входна програма,
-        свързващ редактор, препроцесор, изпълнение.
-    </p>
+                    <p>
+                        Подреди в правилна последователност: зареждаща програма, компилатор, входна
+                        програма, свързващ редактор, препроцесор, изпълнение.
+                    </p>
 
-    <button data-answer-target="e3" aria-controls="e3" aria-expanded="false">Провери</button>
+                    <button data-answer-target="e3" aria-controls="e3" aria-expanded="false">
+                        Провери
+                    </button>
 
-    <div id="e3" class="answer">
-        Входна програма → Препроцесор → Компилатор →
-        Свързващ редактор → Зареждаща програма → Изпълнение.
-    </div>
-</div><div class="pager"><a class="btn secondary" href="student-compiler.html">← Назад</a><a class="btn" href="homework.html">Напред →</a></div></main></div>
-<script src="script.js"></script></body></html>
+                    <div id="e3" class="answer">
+                        Входна програма → Препроцесор → Компилатор → Свързващ редактор → Зареждаща
+                        програма → Изпълнение.
+                    </div>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="student-compiler.html">← Назад</a
+                    ><a class="btn" href="homework.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

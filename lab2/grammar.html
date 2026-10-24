@@ -1,57 +1,107 @@
 <!doctype html>
 <html lang="bg">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Формална граматика — Езикови процесори</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 2</small></div></header>
-<div class="layout">
-<nav><h3>Съдържание</h3><a href="index.html">Начало</a>
-<a href="formal-language.html">Формален език</a>
-<a class="active" href="grammar.html">Формална граматика</a>
-<a href="derivation.html">Извеждане на думи</a>
-<a href="chomsky.html">Класификация на Хомски</a>
-<a href="regular.html">Регулярни граматики</a>
-<a href="exercises.html">Упражнения</a>
-<a href="homework.html">Домашна работа</a>
-<a href="self-check.html">Самопроверка</a></nav>
-<main>
-<span class="tag">Лабораторно 2</span>
-<h1>Формална граматика</h1>
-<p class="lead">Граматиката задава символите и правилата, чрез които могат да се построят думите на езика.</p>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Формална граматика — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 2</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a href="index.html">Начало</a>
+                <a href="formal-language.html">Формален език</a>
+                <a class="active" href="grammar.html">Формална граматика</a>
+                <a href="derivation.html">Извеждане на думи</a>
+                <a href="chomsky.html">Класификация на Хомски</a>
+                <a href="regular.html">Регулярни граматики</a>
+                <a href="exercises.html">Упражнения</a>
+                <a href="homework.html">Домашна работа</a>
+                <a href="self-check.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 2</span>
+                <h1>Формална граматика</h1>
+                <p class="lead">
+                    Граматиката задава символите и правилата, чрез които могат да се построят думите
+                    на езика.
+                </p>
 
-<div class="hero"><h2>G = (N, T, P, S)</h2>
-<p>Формалната граматика се задава чрез четири компонента.</p></div>
-<table>
-<tr><th>Компонент</th><th>Значение</th></tr>
-<tr><td><b>N</b></td><td>множество от нетерминални символи</td></tr>
-<tr><td><b>T</b></td><td>множество от терминални символи</td></tr>
-<tr><td><b>P</b></td><td>множество от продукционни правила</td></tr>
-<tr><td><b>S</b></td><td>начален символ, S ∈ N</td></tr>
-</table>
-<div class="note"><b>Терминалите</b> остават в крайния резултат. <b>Нетерминалите</b> са помощни символи, които се заменят чрез правилата.</div>
+                <div class="hero">
+                    <h2>G = (N, T, P, S)</h2>
+                    <p>Формалната граматика се задава чрез четири компонента.</p>
+                </div>
+                <table>
+                    <tr>
+                        <th>Компонент</th>
+                        <th>Значение</th>
+                    </tr>
+                    <tr>
+                        <td><b>N</b></td>
+                        <td>множество от нетерминални символи</td>
+                    </tr>
+                    <tr>
+                        <td><b>T</b></td>
+                        <td>множество от терминални символи</td>
+                    </tr>
+                    <tr>
+                        <td><b>P</b></td>
+                        <td>множество от продукционни правила</td>
+                    </tr>
+                    <tr>
+                        <td><b>S</b></td>
+                        <td>начален символ, S ∈ N</td>
+                    </tr>
+                </table>
+                <div class="note">
+                    <b>Терминалите</b> остават в крайния резултат. <b>Нетерминалите</b> са помощни
+                    символи, които се заменят чрез правилата.
+                </div>
 
-<h2>Минимален пример</h2>
-<div class="example"><pre>S → aS
+                <h2>Минимален пример</h2>
+                <div class="example">
+                    <pre>
+S → aS
 S → b</pre>
-<p>Тук <code>N = {S}</code>, <code>T = {a,b}</code>, началният символ е <code>S</code>, а <code>P</code> съдържа двете показани правила.</p></div>
+                    <p>
+                        Тук <code>N = {S}</code>, <code>T = {a,b}</code>, началният символ е
+                        <code>S</code>, а <code>P</code> съдържа двете показани правила.
+                    </p>
+                </div>
 
-<div class="quiz"><b>Провери се:</b> В правилото <code>S → aS</code> кои символи са терминални?<br>
-<button data-answer-target="g1" aria-controls="g1" aria-expanded="false">Отговор</button>
-<div id="g1" class="answer"><code>a</code> е терминал. <code>S</code> е нетерминал.</div></div>
+                <div class="quiz">
+                    <b>Провери се:</b> В правилото <code>S → aS</code> кои символи са терминални?<br />
+                    <button data-answer-target="g1" aria-controls="g1" aria-expanded="false">
+                        Отговор
+                    </button>
+                    <div id="g1" class="answer">
+                        <code>a</code> е терминал. <code>S</code> е нетерминал.
+                    </div>
+                </div>
 
-<h2>Пример, близък до програмен език</h2>
-<div class="example"><pre>program → PROGRAM { body }
+                <h2>Пример, близък до програмен език</h2>
+                <div class="example">
+                    <pre>
+program → PROGRAM { body }
 body    → main
 main    → MAIN ( ) → VOID block</pre>
-<p>Тук граматиката вече описва структура на програма. По-късно синтактичният анализатор ще използва подобни правила, за да провери дали входната програма има допустима структура.</p></div>
+                    <p>
+                        Тук граматиката вече описва структура на програма. По-късно синтактичният
+                        анализатор ще използва подобни правила, за да провери дали входната програма
+                        има допустима структура.
+                    </p>
+                </div>
 
-<div class="pager"><a class="btn secondary" href="formal-language.html">← Назад</a><a class="btn" href="derivation.html">Напред →</a></div>
-</main>
-</div>
-<script src="script.js"></script>
-</body>
+                <div class="pager">
+                    <a class="btn secondary" href="formal-language.html">← Назад</a
+                    ><a class="btn" href="derivation.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

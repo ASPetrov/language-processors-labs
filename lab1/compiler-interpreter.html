@@ -1,45 +1,96 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Компилатор срещу интерпретатор — Езикови процесори</title><link rel="stylesheet" href="style.css"></head>
-<body><header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 1</small></div></header>
-<div class="layout"><nav><h3>Съдържание</h3><a class="" href="index.html">Начало</a>
-<a class="" href="processors.html">Езикови процесори</a>
-<a class="active" href="compiler-interpreter.html">Компилатор и интерпретатор</a>
-<a class="" href="toolchain.html">До изпълнима програма</a>
-<a class="" href="student-compiler.html">Учебният компилатор</a>
-<a class="" href="exercises.html">Упражнения</a>
-<a class="" href="homework.html">Домашно и тест</a></nav><main><span class="tag">Лабораторно 1</span><h1>Компилатор срещу интерпретатор</h1>
-<p class="lead">Двата подхода превеждат програми, но начинът на изпълнение е различен.</p>
-<table class="comparison-table"><tr><th>Компилатор</th><th>Интерпретатор</th></tr>
-<tr><td>Създава обектен код, който се преобразува в изпълним формат.</td><td>Превежда и непосредствено изпълнява.</td></tr>
-<tr><td>Компилираната програма може да се изпълнява без компилатора.</td><td>Изпълнението изисква интерпретатора.</td></tr>
-<tr><td>Обичайно по-бързо изпълнение.</td><td>По-проста реализация на езиковия процесор.</td></tr></table>
-<h2>Хибриден подход</h2>
-<div class="pipeline">
-    <span class="step">Входна програма</span>
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Компилатор срещу интерпретатор — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 1</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="processors.html">Езикови процесори</a>
+                <a class="active" href="compiler-interpreter.html">Компилатор и интерпретатор</a>
+                <a class="" href="toolchain.html">До изпълнима програма</a>
+                <a class="" href="student-compiler.html">Учебният компилатор</a>
+                <a class="" href="exercises.html">Упражнения</a>
+                <a class="" href="homework.html">Домашно и тест</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 1</span>
+                <h1>Компилатор срещу интерпретатор</h1>
+                <p class="lead">
+                    Двата подхода превеждат програми, но начинът на изпълнение е различен.
+                </p>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Компилатор</th>
+                        <th>Интерпретатор</th>
+                    </tr>
+                    <tr>
+                        <td>Създава обектен код, който се преобразува в изпълним формат.</td>
+                        <td>Превежда и непосредствено изпълнява.</td>
+                    </tr>
+                    <tr>
+                        <td>Компилираната програма може да се изпълнява без компилатора.</td>
+                        <td>Изпълнението изисква интерпретатора.</td>
+                    </tr>
+                    <tr>
+                        <td>Обичайно по-бързо изпълнение.</td>
+                        <td>По-проста реализация на езиковия процесор.</td>
+                    </tr>
+                </table>
+                <h2>Хибриден подход</h2>
+                <div class="pipeline">
+                    <span class="step">Входна програма</span>
 
-    <span class="pipeline-item">
-        <span class="arrow">→</span>
-        <span class="step">Компилатор</span>
-    </span>
+                    <span class="pipeline-item">
+                        <span class="arrow">→</span>
+                        <span class="step">Компилатор</span>
+                    </span>
 
-    <span class="pipeline-item">
-        <span class="arrow">→</span>
-        <span class="step">Междинен код</span>
-    </span>
+                    <span class="pipeline-item">
+                        <span class="arrow">→</span>
+                        <span class="step">Междинен код</span>
+                    </span>
 
-    <span class="pipeline-item">
-        <span class="arrow">→</span>
-        <span class="step">Виртуална машина</span>
-    </span>
+                    <span class="pipeline-item">
+                        <span class="arrow">→</span>
+                        <span class="step">Виртуална машина</span>
+                    </span>
 
-    <span class="pipeline-item">
-        <span class="arrow">→</span>
-        <span class="step">Резултат</span>
-    </span>
-</div>
-<p>
-    Учебният компилатор също генерира код за виртуална машина.
-</p>
-<div class="quiz"><b>Провери се:</b> Защо кодът за виртуална машина не се изпълнява директно от реалния процесор?<br><button data-answer-target="a2" aria-controls="a2" aria-expanded="false">Покажи отговора</button><div id="a2" class="answer">Защото инструкциите са за виртуален, а не за конкретен реален процесор; необходим е интерпретатор/среда за виртуалната машина.</div></div><div class="pager"><a class="btn secondary" href="processors.html">← Назад</a><a class="btn" href="toolchain.html">Напред →</a></div></main></div>
+                    <span class="pipeline-item">
+                        <span class="arrow">→</span>
+                        <span class="step">Резултат</span>
+                    </span>
+                </div>
+                <p>Учебният компилатор също генерира код за виртуална машина.</p>
+                <div class="quiz">
+                    <b>Провери се:</b> Защо кодът за виртуална машина не се изпълнява директно от
+                    реалния процесор?<br /><button
+                        data-answer-target="a2"
+                        aria-controls="a2"
+                        aria-expanded="false"
+                    >
+                        Покажи отговора
+                    </button>
+                    <div id="a2" class="answer">
+                        Защото инструкциите са за виртуален, а не за конкретен реален процесор;
+                        необходим е интерпретатор/среда за виртуалната машина.
+                    </div>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="processors.html">← Назад</a
+                    ><a class="btn" href="toolchain.html">Напред →</a>
+                </div>
+            </main>
+        </div>
 
-<script src="script.js"></script></body></html>
+        <script src="script.js"></script>
+    </body>
+</html>

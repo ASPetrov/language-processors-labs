@@ -1,1 +1,72 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Лексически анализ — Езикови процесори</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 5</small></div></header><div class="layout"><nav><h3>Съдържание</h3><a class="active" href="index.html">Въведение</a><a class="" href="lexemes.html">Лексеми и токени</a><a class="" href="categories.html">Видове токени</a><a class="" href="scanner.html">Работа на анализатора</a><a class="" href="errors.html">Лексически грешки</a><a class="" href="exercises.html">Упражнения</a><a class="" href="homework.html">Самопроверка и домашно</a></nav><main><span class="tag">Лабораторно 5 · Лексически анализ</span><h1>Лексически анализ</h1><p class="lead">Как изходната програма се превръща в последователност от разпознати токени.</p><section class="hero"><h3>Какво ще можеш след урока?</h3><p>Да различаваш лексема и токен, да класифицираш основните видове токени, да проследяваш сканиране отляво надясно и да определяш кои грешки са лексически.</p></section><h2>Място в компилатора</h2><div class="pipeline"><span class="step">Изходен код</span><span class="arrow">→</span><span class="step focus">Лексически анализатор</span><span class="arrow">→</span><span class="step">Поток от токени</span><span class="arrow">→</span><span class="step">Синтактичен анализатор</span></div><p>Лексическият анализ (сканиране) прочита входната програма отляво надясно и разпознава значещите символни последователности. Той не проверява дали токените са подредени според синтактичните правила.</p><section class="example"><h3>Пример</h3><pre><code>int count = 25;</code></pre><p>Резултат: <code>KEYWORD</code>, <code>IDENTIFIER</code>, <code>ASSIGNMENT</code>, <code>INTEGER</code>, <code>SEMICOLON</code>.</p></section><section class="note"><h3>Важно</h3><p>Това упражнение е <strong>аналитично</strong>: няма да пишем програмен код. Ще разпознаваме, класифицираме и проследяваме работата на анализатора.</p></section><div class="pager"><span></span><a class="btn" href="lexemes.html">Следваща →</a></div></main></div><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Лексически анализ — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 5</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="active" href="index.html">Въведение</a
+                ><a class="" href="lexemes.html">Лексеми и токени</a
+                ><a class="" href="categories.html">Видове токени</a
+                ><a class="" href="scanner.html">Работа на анализатора</a
+                ><a class="" href="errors.html">Лексически грешки</a
+                ><a class="" href="exercises.html">Упражнения</a
+                ><a class="" href="homework.html">Самопроверка и домашно</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 5 · Лексически анализ</span>
+                <h1>Лексически анализ</h1>
+                <p class="lead">
+                    Как изходната програма се превръща в последователност от разпознати токени.
+                </p>
+                <section class="hero">
+                    <h3>Какво ще можеш след урока?</h3>
+                    <p>
+                        Да различаваш лексема и токен, да класифицираш основните видове токени, да
+                        проследяваш сканиране отляво надясно и да определяш кои грешки са
+                        лексически.
+                    </p>
+                </section>
+                <h2>Място в компилатора</h2>
+                <div class="pipeline">
+                    <span class="step">Изходен код</span><span class="arrow">→</span
+                    ><span class="step focus">Лексически анализатор</span
+                    ><span class="arrow">→</span><span class="step">Поток от токени</span
+                    ><span class="arrow">→</span><span class="step">Синтактичен анализатор</span>
+                </div>
+                <p>
+                    Лексическият анализ (сканиране) прочита входната програма отляво надясно и
+                    разпознава значещите символни последователности. Той не проверява дали токените
+                    са подредени според синтактичните правила.
+                </p>
+                <section class="example">
+                    <h3>Пример</h3>
+                    <pre><code>int count = 25;</code></pre>
+                    <p>
+                        Резултат: <code>KEYWORD</code>, <code>IDENTIFIER</code>,
+                        <code>ASSIGNMENT</code>, <code>INTEGER</code>, <code>SEMICOLON</code>.
+                    </p>
+                </section>
+                <section class="note">
+                    <h3>Важно</h3>
+                    <p>
+                        Това упражнение е <strong>аналитично</strong>: няма да пишем програмен код.
+                        Ще разпознаваме, класифицираме и проследяваме работата на анализатора.
+                    </p>
+                </section>
+                <div class="pager">
+                    <span></span><a class="btn" href="lexemes.html">Следваща →</a>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

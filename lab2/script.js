@@ -1,6 +1,6 @@
 "use strict";
 
-document.querySelectorAll("button[data-answer-target]").forEach(button => {
+document.querySelectorAll("button[data-answer-target]").forEach((button) => {
     const answer = document.getElementById(button.dataset.answerTarget);
     button.addEventListener("click", () => {
         const expanded = button.getAttribute("aria-expanded") !== "true";

@@ -1,70 +1,129 @@
 <!doctype html>
 <html lang="bg">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Упражнения в лабораторията — Езикови процесори</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 2</small></div></header>
-<div class="layout">
-<nav><h3>Съдържание</h3><a href="index.html">Начало</a>
-<a href="formal-language.html">Формален език</a>
-<a href="grammar.html">Формална граматика</a>
-<a href="derivation.html">Извеждане на думи</a>
-<a href="chomsky.html">Класификация на Хомски</a>
-<a href="regular.html">Регулярни граматики</a>
-<a class="active" href="exercises.html">Упражнения</a>
-<a href="homework.html">Домашна работа</a>
-<a href="self-check.html">Самопроверка</a></nav>
-<main>
-<span class="tag">Лабораторно 2</span>
-<h1>Упражнения в лабораторията</h1>
-<p class="lead">Тези задачи се решават в часа. Те преминават от разпознаване на елементите на граматиката към извеждане и класификация.</p>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Упражнения в лабораторията — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 2</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a href="index.html">Начало</a>
+                <a href="formal-language.html">Формален език</a>
+                <a href="grammar.html">Формална граматика</a>
+                <a href="derivation.html">Извеждане на думи</a>
+                <a href="chomsky.html">Класификация на Хомски</a>
+                <a href="regular.html">Регулярни граматики</a>
+                <a class="active" href="exercises.html">Упражнения</a>
+                <a href="homework.html">Домашна работа</a>
+                <a href="self-check.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 2</span>
+                <h1>Упражнения в лабораторията</h1>
+                <p class="lead">
+                    Тези задачи се решават в часа. Те преминават от разпознаване на елементите на
+                    граматиката към извеждане и класификация.
+                </p>
 
-<div class="example"><h3>Задача 1 — Компоненти на граматиката</h3>
-<pre>S → aA
+                <div class="example">
+                    <h3>Задача 1 — Компоненти на граматиката</h3>
+                    <pre>
+S → aA
 A → bA
 A → b</pre>
-<p>Определи N, T, P и S.</p>
-<button data-answer-target="e1" aria-controls="e1" aria-expanded="false">Провери</button>
-<div id="e1" class="answer">N = {S, A}; T = {a, b}; S е началният символ; P са трите продукционни правила.</div></div>
+                    <p>Определи N, T, P и S.</p>
+                    <button data-answer-target="e1" aria-controls="e1" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e1" class="answer">
+                        N = {S, A}; T = {a, b}; S е началният символ; P са трите продукционни
+                        правила.
+                    </div>
+                </div>
 
-<div class="example"><h3>Задача 2 — Извеждане</h3>
-<pre>S → aS
+                <div class="example">
+                    <h3>Задача 2 — Извеждане</h3>
+                    <pre>
+S → aS
 S → b</pre>
-<p>Изведи думата <code>aaaab</code> стъпка по стъпка.</p>
-<button data-answer-target="e2" aria-controls="e2" aria-expanded="false">Провери</button>
-<div id="e2" class="answer">S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaaaS ⇒ aaaab</div></div>
+                    <p>Изведи думата <code>aaaab</code> стъпка по стъпка.</p>
+                    <button data-answer-target="e2" aria-controls="e2" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e2" class="answer">S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaaaS ⇒ aaaab</div>
+                </div>
 
-<div class="example"><h3>Задача 3 — Принадлежност към езика</h3>
-<pre>S → 0S
+                <div class="example">
+                    <h3>Задача 3 — Принадлежност към езика</h3>
+                    <pre>
+S → 0S
 S → 1</pre>
-<p>Кои от думите <code>1</code>, <code>001</code>, <code>0101</code>, <code>0001</code> принадлежат на езика?</p>
-<button data-answer-target="e3" aria-controls="e3" aria-expanded="false">Провери</button>
-<div id="e3" class="answer"><code>1</code>, <code>001</code> и <code>0001</code>. Думата <code>0101</code> не може да бъде изведена.</div></div>
+                    <p>
+                        Кои от думите <code>1</code>, <code>001</code>, <code>0101</code>,
+                        <code>0001</code> принадлежат на езика?
+                    </p>
+                    <button data-answer-target="e3" aria-controls="e3" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e3" class="answer">
+                        <code>1</code>, <code>001</code> и <code>0001</code>. Думата
+                        <code>0101</code> не може да бъде изведена.
+                    </div>
+                </div>
 
-<div class="example"><h3>Задача 4 — Класификация</h3>
-<pre>S → aA
+                <div class="example">
+                    <h3>Задача 4 — Класификация</h3>
+                    <pre>
+S → aA
 A → bS
 A → b</pre>
-<p>Към кой тип от йерархията на Хомски принадлежи граматиката? Обоснови отговора чрез формата на правилата.</p>
-<button data-answer-target="e4" aria-controls="e4" aria-expanded="false">Провери</button>
-<div id="e4" class="answer">Граматиката е регулярна (тип 3): правилата са дясно-линейни — терминал, евентуално последван от един нетерминал.</div></div>
+                    <p>
+                        Към кой тип от йерархията на Хомски принадлежи граматиката? Обоснови
+                        отговора чрез формата на правилата.
+                    </p>
+                    <button data-answer-target="e4" aria-controls="e4" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e4" class="answer">
+                        Граматиката е регулярна (тип 3): правилата са дясно-линейни — терминал,
+                        евентуално последван от един нетерминал.
+                    </div>
+                </div>
 
-<div class="example"><h3>Задача 5 — Извеждане на програмна конструкция</h3>
-<pre>program → PROGRAM { body }
+                <div class="example">
+                    <h3>Задача 5 — Извеждане на програмна конструкция</h3>
+                    <pre>
+program → PROGRAM { body }
 body    → main
 main    → MAIN ( ) → VOID block
 block   → { }</pre>
-<p>Започни от <code>program</code> и получи крайната програмна конструкция, като записваш всяка междинна стъпка.</p>
-<button data-answer-target="e5" aria-controls="e5" aria-expanded="false">Провери</button>
-<div id="e5" class="answer"><code>program ⇒ PROGRAM { body } ⇒ PROGRAM { main } ⇒ PROGRAM { MAIN ( ) → VOID block } ⇒ PROGRAM { MAIN ( ) → VOID { } }</code></div></div>
+                    <p>
+                        Започни от <code>program</code> и получи крайната програмна конструкция,
+                        като записваш всяка междинна стъпка.
+                    </p>
+                    <button data-answer-target="e5" aria-controls="e5" aria-expanded="false">
+                        Провери
+                    </button>
+                    <div id="e5" class="answer">
+                        <code
+                            >program ⇒ PROGRAM { body } ⇒ PROGRAM { main } ⇒ PROGRAM { MAIN ( ) →
+                            VOID block } ⇒ PROGRAM { MAIN ( ) → VOID { } }</code
+                        >
+                    </div>
+                </div>
 
-<div class="pager"><a class="btn secondary" href="regular.html">← Назад</a><a class="btn" href="homework.html">Напред →</a></div>
-</main>
-</div>
-<script src="script.js"></script>
-</body>
+                <div class="pager">
+                    <a class="btn secondary" href="regular.html">← Назад</a
+                    ><a class="btn" href="homework.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

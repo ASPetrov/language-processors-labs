@@ -1,10 +1,102 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Самопроверка — Езикови процесори</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 4</small></div></header><div class="layout"><nav><h3>Съдържание</h3><a  href="index.html">Начало</a>
-<a  href="structure.html">Структура на STUDENT</a>
-<a  href="lexicon.html">Азбука и ключови думи</a>
-<a  href="types.html">Типове и оператори</a>
-<a  href="control.html">Управление и вход/изход</a>
-<a  href="functions.html">Функции и рекурсия</a>
-<a  href="arrays.html">Масиви</a>
-<a  href="exercises.html">Упражнения</a>
-<a  href="homework.html">Домашна работа</a>
-<a class="active" href="self-check.html">Самопроверка</a></nav><main><span class="tag">Лабораторно 4</span><h1>Самопроверка</h1><p class="lead">Четирите контролни въпроса от ръководството.</p><div class="quiz"><strong>1. Кои са ключовите думи в програмния език STUDENT?</strong><br><button type="button" data-answer-target="q1" aria-controls="q1" aria-expanded="false">Провери</button><div id="q1" class="answer"><code>if, int, char, else, read, true, void, false, while, print, length, return, boolean, program</code>.</div></div><div class="quiz"><strong>2. Какви типове данни поддържа STUDENT?</strong><br><button type="button" data-answer-target="q2" aria-controls="q2" aria-expanded="false">Провери</button><div id="q2" class="answer">Три прости типа: <code>int</code>, <code>char</code>, <code>boolean</code>; и структуриран тип — едномерен масив.</div></div><div class="quiz"><strong>3. Операторите в езика STUDENT могат да бъдат съставени от един или от два символа. Посочете едносимволните и двусимволните оператори в езика и обяснете тяхното предназначение.</strong><br><button type="button" data-answer-target="q3" aria-controls="q3" aria-expanded="false">Провери</button><div id="q3" class="answer">Едносимволни: <code>+ - * / % ! &lt; &gt; =</code>; двусимволни: <code>&amp;&amp; || &lt;= &gt;= != == -&gt;</code>. Те служат за аритметика, логика, сравнения, присвояване и указване тип на резултат.</div></div><div class="quiz"><strong>4. Как се извиква функция в езика STUDENT?</strong><br><button type="button" data-answer-target="q4" aria-controls="q4" aria-expanded="false">Провери</button><div id="q4" class="answer">Извикването задължително започва с <code>@</code>, например <code>@suma(10, 5)</code>.</div></div><div class="pager"><a class="btn secondary" href="homework.html">← Назад</a><span></span></div></main></div><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Самопроверка — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 4</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a href="index.html">Начало</a>
+                <a href="structure.html">Структура на STUDENT</a>
+                <a href="lexicon.html">Азбука и ключови думи</a>
+                <a href="types.html">Типове и оператори</a>
+                <a href="control.html">Управление и вход/изход</a>
+                <a href="functions.html">Функции и рекурсия</a>
+                <a href="arrays.html">Масиви</a>
+                <a href="exercises.html">Упражнения</a>
+                <a href="homework.html">Домашна работа</a>
+                <a class="active" href="self-check.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 4</span>
+                <h1>Самопроверка</h1>
+                <p class="lead">Четирите контролни въпроса от ръководството.</p>
+                <div class="quiz">
+                    <strong>1. Кои са ключовите думи в програмния език STUDENT?</strong
+                    ><br /><button
+                        type="button"
+                        data-answer-target="q1"
+                        aria-controls="q1"
+                        aria-expanded="false"
+                    >
+                        Провери
+                    </button>
+                    <div id="q1" class="answer">
+                        <code
+                            >if, int, char, else, read, true, void, false, while, print, length,
+                            return, boolean, program</code
+                        >.
+                    </div>
+                </div>
+                <div class="quiz">
+                    <strong>2. Какви типове данни поддържа STUDENT?</strong><br /><button
+                        type="button"
+                        data-answer-target="q2"
+                        aria-controls="q2"
+                        aria-expanded="false"
+                    >
+                        Провери
+                    </button>
+                    <div id="q2" class="answer">
+                        Три прости типа: <code>int</code>, <code>char</code>, <code>boolean</code>;
+                        и структуриран тип — едномерен масив.
+                    </div>
+                </div>
+                <div class="quiz">
+                    <strong
+                        >3. Операторите в езика STUDENT могат да бъдат съставени от един или от два
+                        символа. Посочете едносимволните и двусимволните оператори в езика и
+                        обяснете тяхното предназначение.</strong
+                    ><br /><button
+                        type="button"
+                        data-answer-target="q3"
+                        aria-controls="q3"
+                        aria-expanded="false"
+                    >
+                        Провери
+                    </button>
+                    <div id="q3" class="answer">
+                        Едносимволни: <code>+ - * / % ! &lt; &gt; =</code>; двусимволни:
+                        <code>&amp;&amp; || &lt;= &gt;= != == -&gt;</code>. Те служат за аритметика,
+                        логика, сравнения, присвояване и указване тип на резултат.
+                    </div>
+                </div>
+                <div class="quiz">
+                    <strong>4. Как се извиква функция в езика STUDENT?</strong><br /><button
+                        type="button"
+                        data-answer-target="q4"
+                        aria-controls="q4"
+                        aria-expanded="false"
+                    >
+                        Провери
+                    </button>
+                    <div id="q4" class="answer">
+                        Извикването задължително започва с <code>@</code>, например
+                        <code>@suma(10, 5)</code>.
+                    </div>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="homework.html">← Назад</a><span></span>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

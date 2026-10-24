@@ -1,51 +1,72 @@
 <!doctype html>
 <html lang="bg">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Формални езици и граматики — Езикови процесори</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="top"><div class="brand">ЕП <small>Лабораторно упражнение 2</small></div></header>
-<div class="layout">
-<nav><h3>Съдържание</h3><a class="active" href="index.html">Начало</a>
-<a href="formal-language.html">Формален език</a>
-<a href="grammar.html">Формална граматика</a>
-<a href="derivation.html">Извеждане на думи</a>
-<a href="chomsky.html">Класификация на Хомски</a>
-<a href="regular.html">Регулярни граматики</a>
-<a href="exercises.html">Упражнения</a>
-<a href="homework.html">Домашна работа</a>
-<a href="self-check.html">Самопроверка</a></nav>
-<main>
-<span class="tag">Лабораторно 2</span>
-<h1>Формални езици и граматики</h1>
-<p class="lead">Как описваме точно езика, който един компилатор трябва да разпознава?</p>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Формални езици и граматики — Езикови процесори</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 2</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="active" href="index.html">Начало</a>
+                <a href="formal-language.html">Формален език</a>
+                <a href="grammar.html">Формална граматика</a>
+                <a href="derivation.html">Извеждане на думи</a>
+                <a href="chomsky.html">Класификация на Хомски</a>
+                <a href="regular.html">Регулярни граматики</a>
+                <a href="exercises.html">Упражнения</a>
+                <a href="homework.html">Домашна работа</a>
+                <a href="self-check.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 2</span>
+                <h1>Формални езици и граматики</h1>
+                <p class="lead">
+                    Как описваме точно езика, който един компилатор трябва да разпознава?
+                </p>
 
-<div class="hero">
-<h2>Какво ще научиш?</h2>
-<p>В предишното упражнение проследихме пътя на програмата през компилатора. Сега правим следващата стъпка: описваме <b>как изглеждат допустимите конструкции на един език</b>.</p>
-</div>
-<h2>От програма към формално описание</h2>
-<div class="example">
-<h3>Пример</h3>
-<pre>int x;
+                <div class="hero">
+                    <h2>Какво ще научиш?</h2>
+                    <p>
+                        В предишното упражнение проследихме пътя на програмата през компилатора.
+                        Сега правим следващата стъпка: описваме
+                        <b>как изглеждат допустимите конструкции на един език</b>.
+                    </p>
+                </div>
+                <h2>От програма към формално описание</h2>
+                <div class="example">
+                    <h3>Пример</h3>
+                    <pre>
+int x;
 int count;
 int value123;</pre>
-<p>За човека тези редове изглеждат естествено. Компилаторът обаче се нуждае от точни правила: кои символи са допустими, как могат да се комбинират и кои последователности принадлежат на езика.</p>
-</div>
-<div class="pipeline">
-<span class="step">Азбука</span><span class="arrow">→</span>
-<span class="step">Думи</span><span class="arrow">→</span>
-<span class="step">Език</span><span class="arrow">→</span>
-<span class="step">Граматика</span>
-</div>
-<div class="note"><b>Основна идея:</b> формалната граматика не описва как работи компилаторът. Тя задава правила, чрез които се описват допустимите конструкции на езика.</div>
+                    <p>
+                        За човека тези редове изглеждат естествено. Компилаторът обаче се нуждае от
+                        точни правила: кои символи са допустими, как могат да се комбинират и кои
+                        последователности принадлежат на езика.
+                    </p>
+                </div>
+                <div class="pipeline">
+                    <span class="step">Азбука</span><span class="arrow">→</span>
+                    <span class="step">Думи</span><span class="arrow">→</span>
+                    <span class="step">Език</span><span class="arrow">→</span>
+                    <span class="step">Граматика</span>
+                </div>
+                <div class="note">
+                    <b>Основна идея:</b> формалната граматика не описва как работи компилаторът. Тя
+                    задава правила, чрез които се описват допустимите конструкции на езика.
+                </div>
 
-<div class="pager"><span></span><a class="btn" href="formal-language.html">Напред →</a></div>
-</main>
-</div>
-<script src="script.js"></script>
-</body>
+                <div class="pager">
+                    <span></span><a class="btn" href="formal-language.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
