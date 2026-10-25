@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Разпознаване на ключови думи — Лабораторно 6</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 6</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="tokens.html">Лексеми и структура</a>
+                <a class="active" href="keywords.html">Ключови думи</a>
+                <a class="" href="operators.html">Оператори и разделители</a>
+                <a class="" href="errors.html">Лексически грешки</a>
+                <a class="" href="homework.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 6</span>
+                <h1>Разпознаване на ключови думи</h1>
+                <p class="lead">Как HashSet помага да разграничим ключовите думи от идентификаторите.</p>
+                <h2>6.2. Разпознаване на ключови думи</h2>
+                <p>Ключовите думи се съхраняват в <code>keywords</code> от тип <code>HashSet</code>. Методът <code>isKeyword()</code> проверява дали разпознатият текст е ключова дума.</p>
+                <pre>private static Set&lt;String&gt; keywords = new HashSet&lt;&gt;();
+static {
+    keywords.add(IF.value);
+    /* ToDo - Add all other keywords into the HashSet */
+}</pre>
+                <p>Коментарът <code>ToDo</code> е част от домашната задачата.</p>
+                <div class="example">
+                    <h3>Ключова дума или идентификатор?</h3>
+                    <p class="question">Как следва да се класифицира <code>while</code>, ако всички ключови думи са добавени в <code>keywords</code>?</p>
+                    <button aria-controls="kw1" aria-expanded="false" data-answer-target="kw1" type="button">Покажи отговора</button>
+                    <div class="answer" id="kw1"><code>while</code> е ключова дума (<code>WHILE</code>). За разлика от нея <code>whileCount</code> е идентификатор.</div>
+                </div>
+                <div class="pager"><a class="btn secondary" href="tokens.html">← Назад</a><a class="btn" href="operators.html">Напред →</a></div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>

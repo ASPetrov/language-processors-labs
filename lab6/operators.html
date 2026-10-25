@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Оператори и разделители — Лабораторно 6</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 6</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="tokens.html">Лексеми и структура</a>
+                <a class="" href="keywords.html">Ключови думи</a>
+                <a class="active" href="operators.html">Оператори и разделители</a>
+                <a class="" href="errors.html">Лексически грешки</a>
+                <a class="" href="homework.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 6</span>
+                <h1>Оператори и разделители</h1>
+                <p class="lead">Алгоритъмът на nextToken() и разпознаването на едно- и двусимволни лексеми.</p>
+                <h2>6.3. Основен алгоритъм</h2>
+                <p><code>nextToken()</code> взема текущия символ, реда и позицията от <code>Source</code>, пропуска интервали и табулации и избира обработка според първия символ на лексемата.</p>
+                <pre>public Token&lt;TokenType&gt; nextToken() {
+    currentChar = source.getCurrentChar();
+    line = source.getLineNumber();
+    position = source.getPosition() + 1;
+    while (currentChar != Source.EOF) {
+        switch (currentChar) {
+            case ' ': case '\t': handleSpaceAndTabs(); continue;
+            case '-': return handleTwoCharOp('&gt;', TokenType.MINUS, TokenType.ARROW);
+            case '=': /* ToDo: = и == */
+            case '&gt;': /* ToDo: &gt; и &gt;= */
+            case '&lt;': /* ToDo: &lt; и &lt;= */
+            case '!': /* ToDo: ! и != */
+            case '&amp;': /* ToDo: &amp;&amp; или OTHER */
+            case '|': /* ToDo: | или OTHER */
+            case '/': return handleSlash();
+            case '\'': return handleCharLiteral();
+            case '"': return handleStringLiteral();
+            case '+': return retTokenAndAdvance(TokenType.PLUS);
+            // ToDo: [, ], {, }, (, ), ;, *, %, ,, @
+            default:
+                if (isLetter(currentChar)) return handleIdentifier();
+                if (isDigit(currentChar)) return handleDigit();
+                return retTokenAndAdvance(TokenType.OTHER, currentChar + "");
+        }
+    }
+    return null;
+}</pre>
+                <p>Коментарът <code>ToDo</code> е част от домашната задачата.</p>
+                <h2>6.3.1. Едносимволни оператори и разделители</h2>
+                <pre>case '+': return retTokenAndAdvance(TokenType.PLUS);</pre>
+                <p>Един символ е достатъчен за определяне на типа. В задачата трябва да се добавят и останалите едносимволни оператори и разделители.</p>
+                <h2>6.3.2. Двусимволни оператори и разделители</h2>
+                <pre>case '-': return handleTwoCharOp('&gt;', TokenType.MINUS, TokenType.ARROW);</pre>
+                <p>При <code>-</code> следващият символ определя дали резултатът е <code>MINUS</code>, или <code>ARROW</code>. Аналогично се разграничават <code>=</code> и <code>==</code>, <code>&gt;</code> и <code>&gt;=</code>, <code>&lt;</code> и <code>&lt;=</code>, <code>!</code> , <code>!=</code> и <code>&amp;&amp;</code>, <code>||</code>.</p>
+                <div class="example">
+                    <h3>Провери разпознаването</h3>
+                    <p class="question">Кои типове трябва да се получат последователно за <code>-</code> и <code>-&gt;</code>?</p>
+                    <button aria-controls="op1" aria-expanded="false" data-answer-target="op1" type="button">Покажи отговора</button>
+                    <div class="answer" id="op1"><code>MINUS</code> и <code>ARROW</code>.</div>
+                </div>
+                <div class="pager"><a class="btn secondary" href="keywords.html">← Назад</a><a class="btn" href="errors.html">Напред →</a></div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>

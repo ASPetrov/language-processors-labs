@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Лексеми и структура — Лабораторно 6</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 6</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="active" href="tokens.html">Лексеми и структура</a>
+                <a class="" href="keywords.html">Ключови думи</a>
+                <a class="" href="operators.html">Оператори и разделители</a>
+                <a class="" href="errors.html">Лексически грешки</a>
+                <a class="" href="homework.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 6</span>
+                <h1>Лексеми и структура</h1>
+                <p class="lead">Интерфейсът Token, изброимият тип TokenType и файловете на лексическия анализатор.</p>
+                <h2>6.1. Дефиниране на лексеми</h2>
+                <p>Класът <code>Source</code> предварително премахва символите за нов ред и подава програмата като символен низ. Лексическият анализатор извлича лексемите от този поток.</p>
+                <pre>public interface Token&lt;Type&gt; {
+    public Type getTokenType();
+    public String getText();
+    public int getPosition();
+    public int getLine();
+}</pre>
+                <p>Всяка лексема предоставя тип, текст, позиция и ред. Вътрешните имена и символните стойности са дефинирани в <code>TokenType.java</code>. Примерни дефиниции:</p>
+                <pre>INT("int"), CHAR("char"), BOOLEAN("boolean"), VOID("void"),
+WHILE("while"), IF("if"), ELSE("else"), RETURN("return"),
+LENGTH("length"), PROGRAM("program"), PRINT("print"),
+READ("read"), TRUE("true"), FALSE("false")</pre>
+                <h2>6.5. Файлова структура</h2>
+                <div class="example">
+                    <h3>Къде се намира реализацията?</h3>
+                    <ul>
+                        <li><code>lexer/LexerImpl.java</code> — алгоритъм на лексическия анализ.</li>
+                        <li><code>token/TokenImpl.java</code> — реализация на лексема.</li>
+                        <li><code>token/TokenType.java</code> — дефиниции и разпознаване на типовете лексеми.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h3>Провери разбирането</h3>
+                    <p class="question">Кой метод от <code>Token</code> връща позицията на лексемата?</p>
+                    <button aria-controls="tok1" aria-expanded="false" data-answer-target="tok1" type="button">Покажи отговора</button>
+                    <div class="answer" id="tok1"><code>getPosition()</code>. <code>getLine()</code> връща реда, а <code>getText()</code> — текста.</div>
+                </div>
+                <div class="pager"><a class="btn secondary" href="index.html">← Назад</a><a class="btn" href="keywords.html">Напред →</a></div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>
