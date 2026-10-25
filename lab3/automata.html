@@ -91,32 +91,34 @@
                 </section>
                 <section class="example">
                     <h3>Таблица на преходите</h3>
-                    <table>
-                        <tr>
-                            <th>Състояние</th>
-                            <th>Вход a</th>
-                            <th>Вход b</th>
-                            <th>Крайно?</th>
-                        </tr>
-                        <tr>
-                            <td>→ q0</td>
-                            <td>q1</td>
-                            <td>—</td>
-                            <td>Не</td>
-                        </tr>
-                        <tr>
-                            <td>q1</td>
-                            <td>—</td>
-                            <td>q2</td>
-                            <td>Не</td>
-                        </tr>
-                        <tr>
-                            <td>* q2</td>
-                            <td>—</td>
-                            <td>—</td>
-                            <td>Да</td>
-                        </tr>
-                    </table>
+                    <div class="tablewrap">
+                        <table>
+                            <tr>
+                                <th>Състояние</th>
+                                <th>Вход a</th>
+                                <th>Вход b</th>
+                                <th>Крайно?</th>
+                            </tr>
+                            <tr>
+                                <td>→ q0</td>
+                                <td>q1</td>
+                                <td>—</td>
+                                <td>Не</td>
+                            </tr>
+                            <tr>
+                                <td>q1</td>
+                                <td>—</td>
+                                <td>q2</td>
+                                <td>Не</td>
+                            </tr>
+                            <tr>
+                                <td>* q2</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>Да</td>
+                            </tr>
+                        </table>
+                    </div>
                     <p>
                         „—“ означава липсващ преход, т.е. низът се отхвърля. При пълен детерминиран
                         автомат тези преходи биха водили към некрайно капан-състояние.

@@ -2,6 +2,11 @@
 
 document.querySelectorAll(".texttask").forEach((task) => {
     task.querySelector(".check-text")?.addEventListener("click", () => {
+        const feedback = task.querySelector(".feedback");
+        if (!task.querySelector("input").value.trim()) {
+            showAssessment(feedback, "notice", "Въведи отговор.");
+            return;
+        }
         const actual = task
             .querySelector("input")
             .value.split(",")
@@ -9,11 +14,13 @@ document.querySelectorAll(".texttask").forEach((task) => {
             .filter(Boolean);
         const expected = task.dataset.expected.split("|");
         const correct = JSON.stringify(actual) === JSON.stringify(expected);
-        const feedback = task.querySelector(".feedback");
-        feedback.textContent = correct
-            ? `Правилно! Всички ${expected.length} лексеми са разпознати.`
-            : "Провери броя и реда на лексемите. Не пропускай разделителя ;";
-        feedback.className = "feedback " + (correct ? "ok" : "bad");
+        showAssessment(
+            feedback,
+            correct ? "ok" : "bad",
+            correct
+                ? `Правилно! Всички ${expected.length} лексеми са разпознати.`
+                : "Провери броя и реда на лексемите. Не пропускай разделителя ;",
+        );
     });
 });
 

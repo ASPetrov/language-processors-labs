@@ -1,89 +1,4 @@
 /* Допълнения за интерактивните примери. */
-code {
-    font-family: Consolas, Monaco, monospace;
-}
-p code,
-li code {
-    background: #f0f0f0;
-    padding: 2px 5px;
-}
-.tablewrap {
-    overflow: auto;
-}
-.step.focus {
-    background: #04aa6d;
-    color: white;
-}
-.quiz label {
-    display: block;
-    margin: 10px 0;
-    padding: 9px;
-    background: #fff;
-    border-radius: 4px;
-}
-.feedback {
-    font-weight: bold;
-    min-height: 1.4em;
-}
-.feedback.ok {
-    color: #087f4f;
-}
-.feedback.bad {
-    color: #a12c21;
-}
-.tokenstream {
-    min-height: 50px;
-    display: flex;
-    gap: 7px;
-    flex-wrap: wrap;
-}
-.token {
-    background: #d9eee1;
-    border: 1px solid #04aa6d;
-    border-radius: 4px;
-    padding: 5px 9px;
-    font: 13px monospace;
-}
-.actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-}
-details {
-    margin-top: 16px;
-}
-summary {
-    cursor: pointer;
-    color: #06764e;
-    font-weight: 700;
-}
-.actions {
-    flex-wrap: wrap;
-    align-items: center;
-}
-select,
-input:not([type="radio"]):not([type="checkbox"]) {
-    padding: 10px;
-    border: 1px solid #aab2b5;
-    border-radius: 5px;
-    font: inherit;
-    max-width: 100%;
-}
-select {
-    background: white;
-}
-input {
-    margin: 5px;
-}
-.choice {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 12px;
-    background: #fff;
-    margin: 4px;
-    border-radius: 4px;
-}
 .automaton {
     width: 100%;
     max-width: 640px;
@@ -121,7 +36,6 @@ input {
     background: white;
     padding: 15px;
     border-radius: 6px;
-    min-height: 90px;
 }
 .automaton-panel svg {
     width: 100%;
@@ -154,23 +68,6 @@ input {
 .muted {
     font-size: 14px;
     color: #59665e;
-}
-.lab-task label {
-    display: inline-flex;
-    align-items: center;
-}
-.lab-task input:not([type="checkbox"]) {
-    min-width: 240px;
-}
-.lab-task .btn {
-    margin: 8px;
-}
-#builder label {
-    display: block;
-    margin: 9px 0;
-}
-#builder label select {
-    margin-left: 10px;
 }
 @media (max-width: 800px) {
     .automaton-panel {

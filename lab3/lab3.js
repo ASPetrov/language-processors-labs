@@ -7,8 +7,7 @@ const safe = (s) =>
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;");
 function feedback(el, ok, message) {
-    el.textContent = message;
-    el.className = "feedback " + (ok ? "ok" : "bad");
+    showAssessment(el, ok ? "ok" : "bad", message);
 }
 $("set-show")?.addEventListener("click", () => {
     const results = {
@@ -17,6 +16,9 @@ $("set-show")?.addEventListener("click", () => {
         star: "{ε, a, b, aa, ab, ba, bb}",
     };
     $("set-output").textContent = results[$("set-operation").value];
+});
+$("set-operation")?.addEventListener("change", () => {
+    $("set-output").textContent = "Избери операция и натисни бутона.";
 });
 const examples = {
     "a*": "ε, a, aa, aaa, ...",
@@ -177,6 +179,14 @@ document.querySelectorAll(".lab-task").forEach((el) =>
         let ok = false,
             message = "";
         const kind = el.dataset.kind;
+        if ((kind === "set" || kind === "regex") && !el.querySelector("input").value.trim()) {
+            showAssessment(el.querySelector(".feedback"), "notice", "Въведи отговор.");
+            return;
+        }
+        if (kind === "multi" && !el.querySelector("input:checked")) {
+            showAssessment(el.querySelector(".feedback"), "notice", "Отбележи поне един отговор.");
+            return;
+        }
         if (kind === "set") {
             const actual = el
                     .querySelector("input")
@@ -299,6 +309,7 @@ if ($("automaton-diagram")) {
         trace = [];
         render();
     }
+    $("automaton-input").addEventListener("input", reset);
     $("automaton-start").addEventListener("click", reset);
     $("automaton-reset").addEventListener("click", reset);
     $("automaton-select").addEventListener("change", () => {

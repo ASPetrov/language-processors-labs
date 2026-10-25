@@ -43,24 +43,26 @@
 
                 <h2>Дума</h2>
                 <p><b>Дума</b> е крайна последователност от символи от дадена азбука.</p>
-                <table>
-                    <tr>
-                        <th>Последователност</th>
-                        <th>Дума над Σ = {a,b}?</th>
-                    </tr>
-                    <tr>
-                        <td><code>abba</code></td>
-                        <td>Да</td>
-                    </tr>
-                    <tr>
-                        <td><code>bbb</code></td>
-                        <td>Да</td>
-                    </tr>
-                    <tr>
-                        <td><code>abc</code></td>
-                        <td>Не — <code>c</code> не е в Σ</td>
-                    </tr>
-                </table>
+                <div class="tablewrap">
+                    <table>
+                        <tr>
+                            <th>Последователност</th>
+                            <th>Дума над Σ = {a,b}?</th>
+                        </tr>
+                        <tr>
+                            <td><code>abba</code></td>
+                            <td>Да</td>
+                        </tr>
+                        <tr>
+                            <td><code>bbb</code></td>
+                            <td>Да</td>
+                        </tr>
+                        <tr>
+                            <td><code>abc</code></td>
+                            <td>Не — <code>c</code> не е в Σ</td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="note">
                     <p>Празната дума се означава с <b>ε</b>.</p>
                 </div>
@@ -76,7 +78,7 @@
                 </div>
 
                 <div class="quiz">
-                    <b>Провери се:</b> Думата <code>aaba</code> принадлежи ли на езика L по-горе?<br />
+                    <p class="question"><b>Провери се:</b> Думата <code>aaba</code> принадлежи ли на езика L по-горе?</p>
                     <button data-answer-target="fl1" aria-controls="fl1" aria-expanded="false">
                         Отговор
                     </button>

@@ -35,32 +35,34 @@
                 </p>
                 <section class="example">
                     <h3>Оператори и приоритет</h3>
-                    <table>
-                        <tr>
-                            <th>Запис</th>
-                            <th>Значение</th>
-                        </tr>
-                        <tr>
-                            <td><code>a|b</code></td>
-                            <td>Обединение (алтернатива): a или b</td>
-                        </tr>
-                        <tr>
-                            <td><code>ab</code></td>
-                            <td>Конкатенация: първо a, после b</td>
-                        </tr>
-                        <tr>
-                            <td><code>a*</code></td>
-                            <td>Нула или повече a</td>
-                        </tr>
-                        <tr>
-                            <td><code>a+</code></td>
-                            <td>Едно или повече a (разширена нотация)</td>
-                        </tr>
-                        <tr>
-                            <td><code>(ab)*</code></td>
-                            <td>Нула или повече повторения на ab</td>
-                        </tr>
-                    </table>
+                    <div class="tablewrap">
+                        <table>
+                            <tr>
+                                <th>Запис</th>
+                                <th>Значение</th>
+                            </tr>
+                            <tr>
+                                <td><code>a|b</code></td>
+                                <td>Обединение (алтернатива): a или b</td>
+                            </tr>
+                            <tr>
+                                <td><code>ab</code></td>
+                                <td>Конкатенация: първо a, после b</td>
+                            </tr>
+                            <tr>
+                                <td><code>a*</code></td>
+                                <td>Нула или повече a</td>
+                            </tr>
+                            <tr>
+                                <td><code>a+</code></td>
+                                <td>Едно или повече a (разширена нотация)</td>
+                            </tr>
+                            <tr>
+                                <td><code>(ab)*</code></td>
+                                <td>Нула или повече повторения на ab</td>
+                            </tr>
+                        </table>
+                    </div>
                     <p>
                         <b>Приоритет:</b> повторение → конкатенация → обединение. Скобите променят
                         групирането.

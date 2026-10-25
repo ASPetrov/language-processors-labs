@@ -100,11 +100,12 @@ h2 {
     border-radius: 4px;
     margin: 24px 0;
 }
-.example {
+.example,
+.quiz {
     background: var(--panel);
     padding: 20px;
     border-radius: 5px;
-    margin: 22px 0;
+    margin: 24px 0;
 }
 .example h3 {
     margin-top: 0;
@@ -128,7 +129,9 @@ button {
     font-weight: 700;
     padding: 10px 18px;
     border-radius: 5px;
-    margin: 8px 8px 8px 0;
+    margin: 0;
+    vertical-align: middle;
+    max-width: 100%;
 }
 .btn.secondary {
     background: var(--dark);
@@ -166,17 +169,58 @@ td {
 th {
     background: #eee;
 }
-.quiz {
-    border: 1px solid #ddd;
-    padding: 18px;
-    margin: 16px 0;
+
+.answer,
+.feedback {
+    margin: 16px 0 0;
+    padding: 16px;
     border-radius: 5px;
+    border-left: 4px solid #607d8b;
+    background: #edf3f6;
+    color: var(--text);
+    font: inherit;
+    overflow-wrap: anywhere;
 }
 .answer {
     display: none;
-    margin-top: 12px;
-    padding: 12px;
-    background: #d9eee1;
+}
+.answer::before {
+    content: "Отговор и обяснение";
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.feedback:empty {
+    display: none;
+}
+.feedback::before {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.feedback.ok {
+    background: #e6f4ec;
+    border-color: #087f4f;
+    color: #075c3b;
+}
+.feedback.ok::before {
+    content: "Верен отговор";
+}
+.feedback.bad {
+    background: #fff0ed;
+    border-color: #a12c21;
+    color: #852319;
+}
+.feedback.bad::before {
+    content: "Опитай отново";
+}
+.feedback.notice {
+    background: #fff8df;
+    border-color: #b8860b;
+    color: #684e00;
+}
+.feedback.notice::before {
+    content: "Необходим е отговор";
 }
 .pipeline {
     display: flex;
@@ -212,15 +256,207 @@ th {
 }
 
 .pipeline-item {
+    max-width: 100%;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    min-width: 0;
+}
+
+/* Shared typography and spacing for every laboratory. */
+p, ul, ol {
+    margin: 0 0 16px;
+}
+h3, .question {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+.hero, .note {
+    margin: 24px 0;
+}
+.hero > h2 {
+    margin: 0 0 16px;
+}
+:is(.hero, .note, .example, .quiz, .answer) > :first-child {
+    margin-top: 0;
+}
+:is(.hero, .note, .example, .quiz, .answer) > :last-child {
+    margin-bottom: 0;
+}
+.example .quiz {
+    padding: 0;
+    margin: 16px 0;
+    background: transparent;
+}
+.example > .quiz:first-child {
+    margin-top: 0;
+}
+.example > .quiz:last-child {
+    margin-bottom: 0;
+}
+.question b, .question strong, .quiz > p:first-child strong {
+    font-weight: inherit;
+}
+.quiz > p:first-child {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+code, pre, pre code {
+    font-family: Menlo, Consolas, Monaco, monospace;
+}
+code {
+    font-size: 0.9375em;
+}
+p code, li code, td code, .question code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+pre {
+    margin: 16px 0;
+    max-width: 100%;
+}
+pre code {
+    font-size: inherit;
+}
+.tablewrap {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+.tablewrap table {
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+figure {
+    margin: 24px 0;
+}
+figcaption {
+    margin-top: 12px;
+    color: #59665e;
+    font-size: 14px;
+}
+input, select {
+    font: inherit;
+}
+input:not([type="radio"]):not([type="checkbox"]), select {
+    padding: 10px 12px;
+    border: 1px solid #aab2b5;
+    border-radius: 5px;
+    background: white;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    vertical-align: middle;
+}
+input:not([type="radio"]):not([type="checkbox"]) {
+    width: 280px;
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 0;
     flex-shrink: 0;
+    accent-color: var(--green);
+}
+.quiz label, .choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 5px;
+    margin: 0 0 12px;
+}
+.lab-task, .texttask, .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+:is(.lab-task, .texttask) > .feedback {
+    flex-basis: 100%;
+    margin: 4px 0 0;
+}
+.lab-task .choice {
+    display: inline-flex;
+    margin: 0;
+}
+.actions {
+    margin: 16px 0;
+}
+#builder label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 12px;
+}
+details {
+    margin-top: 16px;
+}
+summary {
+    cursor: pointer;
+    color: #06764e;
+    font-weight: 700;
+}
+details[open] {
+    padding: 16px;
+    border-left: 4px solid #607d8b;
+    border-radius: 5px;
+    background: #edf3f6;
+}
+details[open] > :last-child {
+    margin-bottom: 0;
+}
+details[open] > summary {
+    margin-bottom: 12px;
+}
+.tokenstream {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+.tokenstream:empty, .automaton-panel:empty {
+    display: none;
+}
+.token {
+    background: #d9eee1;
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    padding: 5px 9px;
+    font: 13px/1.6 Menlo, Consolas, Monaco, monospace;
+}
+.step.focus {
+    background: var(--green);
+    color: white;
+}
+.nav-toggle {
+    display: none;
+}
+:focus-visible {
+    outline: 3px solid #1976b9;
+    outline-offset: 3px;
 }
 
 @media (max-width: 800px) {
     .layout {
         display: block;
+    }
+    .nav-toggle {
+        display: block;
+        width: calc(100% - 40px);
+        margin: 16px 20px 0;
+        text-align: left;
+        min-height: 44px;
+    }
+    .layout:has(.nav-toggle) nav:not(.is-open) {
+        display: none;
     }
     nav {
         position: static;
@@ -232,6 +468,15 @@ th {
     }
     h1 {
         font-size: 34px;
+    }
+    .lab-task > input:not([type="checkbox"]), .texttask > input {
+        width: 100%;
+    }
+    button, .btn {
+        min-height: 44px;
+    }
+    .pager {
+        gap: 12px;
     }
     .top {
         position: static;
