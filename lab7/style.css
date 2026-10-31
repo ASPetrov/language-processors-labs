@@ -1,0 +1,74 @@
+/* Compact code controls for derivations and syntax trees. */
+.derivation-nonterminal,
+.tree-complete .nonterminal {
+    padding: 5px 9px;
+    font: inherit;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+.tree-complete .nonterminal {
+    max-width: none;
+}
+.tree-complete > ul {
+    width: max-content;
+    min-width: 100%;
+}
+.derivation-nonterminal.selected,
+.tree-complete .nonterminal.selected {
+    outline: 3px solid #1976b9;
+    outline-offset: 2px;
+}
+.rule-detail:not(:empty) {
+    display: block;
+}
+.rule-detail::before {
+    content: "Граматично правило";
+}
+.rule-detail code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+.tree-complete {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 16px;
+    border-radius: 5px;
+    background: white;
+    font: 15px/1.5 Menlo, Consolas, Monaco, monospace;
+}
+.tree-complete ul {
+    list-style: none;
+    padding-left: 24px;
+    margin: 0;
+    border-left: 1px solid #b6c4bc;
+}
+.tree-complete > ul {
+    border: 0;
+    padding: 0;
+}
+.tree-complete li {
+    position: relative;
+    padding: 6px 0 6px 12px;
+    white-space: nowrap;
+}
+.tree-complete li::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 22px;
+    width: 12px;
+    border-top: 1px solid #b6c4bc;
+}
+.tree-complete > ul > li::before {
+    display: none;
+}
+.tree-complete .terminal {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 5px 9px;
+    background: var(--light);
+}
+.tree-complete small {
+    color: #59665e;
+    margin-left: 8px;
+}

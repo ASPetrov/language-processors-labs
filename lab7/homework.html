@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Домашна работа и самопроверка — ЕП, лабораторно 7</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 7</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="syntax.html">Синтактичен анализ</a>
+                <a class="" href="grammar.html">Формална граматика</a>
+                <a class="" href="student.html">Граматика STUDENT</a>
+                <a class="" href="derivation.html">Извеждане на изречения</a>
+                <a class="" href="tree.html">Синтактично дърво</a>
+                <a class="" href="exercises.html">Упражнения</a>
+                <a class="active" href="homework.html">Домашно и тест</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 7</span>
+                <h1>Домашна работа и самопроверка</h1>
+                <p class="lead">Задачи от раздел „Задачи“ на упражнение 7.</p>
+                <h2>Задача 1 — извеждане на програми</h2>
+                <p>От граматиката на STUDENT изведи изречения за следните програми. За всяка посочи използваните продукции и крайния програмен текст.</p>
+                <ol>
+                    <li>Изчисляване на сумата на две цели числа чрез функция с два параметъра.</li>
+                    <li>Извеждане на сумата на целите числа от 1 до 10.</li>
+                    <li>Изчисляване на факториел за число, подадено като параметър на функция.</li>
+                </ol>
+                <h2>Задача 2 — синтактични дървета</h2>
+                <p>Построй дървета за пораждане на:</p>
+                <ol>
+                    <li>Списък от формални параметри <code>int a, int b</code>.</li>
+                    <li>Оператор <code>while (i &gt; 0) { num = num + 1; }</code>.</li>
+                </ol>
+                <h2>Самопроверка</h2>
+                <div class="quiz" data-answer="0">
+                    <p class="question">Коя конструкция допуска нула или повече дефиниции преди main?</p>
+                    <label><input name="hw1" type="radio" value="0"/> program_body</label>
+                    <label><input name="hw1" type="radio" value="1"/> function_call</label>
+                    <label><input name="hw1" type="radio" value="2"/> formal_parameters</label>
+                    <button class="check">Провери</button>
+                    <div aria-live="polite" class="feedback"></div>
+                </div>
+                <div class="quiz" data-answer="1">
+                    <p class="question">Как започва извикване на функция в STUDENT?</p>
+                    <label><input name="hw2" type="radio" value="0"/> С #</label>
+                    <label><input name="hw2" type="radio" value="1"/> С @</label>
+                    <label><input name="hw2" type="radio" value="2"/> С ключовата дума call</label>
+                    <button class="check">Провери</button>
+                    <div aria-live="polite" class="feedback"></div>
+                </div>
+                <div class="quiz" data-answer="2">
+                    <p class="question">Коя конструкция е задължителна в program_body?</p>
+                    <label><input name="hw3" type="radio" value="0"/> function_definition</label>
+                    <label><input name="hw3" type="radio" value="1"/> variable_definition</label>
+                    <label><input name="hw3" type="radio" value="2"/> main_function</label>
+                    <button class="check">Провери</button>
+                    <div aria-live="polite" class="feedback"></div>
+                </div>
+                <p>Домашните задачи са отделени от упражненията в час. Пълните решения не са включени, за да остане работата самостоятелна.</p>
+                <div class="pager"><a class="btn secondary" href="exercises.html">← Назад</a><span></span></div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab7.js"></script>
+    </body>
+</html>

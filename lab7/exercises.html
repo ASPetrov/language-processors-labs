@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Упражнения в час — ЕП, лабораторно 7</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">ЕП <small>Лабораторно упражнение 7</small></div>
+        </header>
+        <div class="layout">
+            <nav>
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="syntax.html">Синтактичен анализ</a>
+                <a class="" href="grammar.html">Формална граматика</a>
+                <a class="" href="student.html">Граматика STUDENT</a>
+                <a class="" href="derivation.html">Извеждане на изречения</a>
+                <a class="" href="tree.html">Синтактично дърво</a>
+                <a class="active" href="exercises.html">Упражнения</a>
+                <a class="" href="homework.html">Домашно и тест</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 7</span>
+                <h1>Упражнения в час</h1>
+                <p class="lead">Контролни въпроси и работа с правилата на STUDENT.</p>
+                <h2>Контролен въпрос 3 от ръководството</h2>
+                <p>За всяко правило определи терминали и нетерминали и обясни каква конструкция описва. Опитай самостоятелно, преди да покажеш отговора.</p>
+                <div class="example">
+                    <p class="question">а) formal_parameters<pre><code>formal_parameters : type IDENTIFIER ( COMMA type IDENTIFIER )*</code></pre></p>
+                    <button aria-controls="ex0" aria-expanded="false" data-answer-target="ex0">Покажи отговора</button>
+                    <div class="answer" id="ex0">Нетерминали: formal_parameters, type. Терминали: IDENTIFIER, COMMA. Поне един параметър; следващите са отделени със запетая.</div>
+                </div>
+                <div class="example">
+                    <p class="question">б) statement<pre><code>statement : simple_statement SEMICOLON | compound_statement</code></pre></p>
+                    <button aria-controls="ex1" aria-expanded="false" data-answer-target="ex1">Покажи отговора</button>
+                    <div class="answer" id="ex1">Нетерминали: statement, simple_statement, compound_statement. Терминал: SEMICOLON. Прост оператор с ; или съставен оператор.</div>
+                </div>
+                <div class="example">
+                    <p class="question">в) simple_statement<pre><code>simple_statement : variable_definition | assignment | function_call | return_statement | print_statement | read_statement</code></pre></p>
+                    <button aria-controls="ex2" aria-expanded="false" data-answer-target="ex2">Покажи отговора</button>
+                    <div class="answer" id="ex2">Всички посочени имена са нетерминали; правилото избира един от шест вида прост оператор.</div>
+                </div>
+                <div class="example">
+                    <p class="question">г) compound_statement<pre><code>compound_statement : if_statement | while_statement</code></pre></p>
+                    <button aria-controls="ex3" aria-expanded="false" data-answer-target="ex3">Покажи отговора</button>
+                    <div class="answer" id="ex3">Нетерминали: compound_statement, if_statement, while_statement. Съставният оператор е if или while.</div>
+                </div>
+                <div class="example">
+                    <p class="question">д) print_statement<pre><code>print_statement : PRINT LPAREN assignable ( COMMA assignable )* RPAREN</code></pre></p>
+                    <button aria-controls="ex4" aria-expanded="false" data-answer-target="ex4">Покажи отговора</button>
+                    <div class="answer" id="ex4">Нетерминали: print_statement, assignable. Терминали: PRINT, LPAREN, COMMA, RPAREN. Поне един аргумент.</div>
+                </div>
+                <div class="example">
+                    <p class="question">е) function_call<pre><code>function_call : AT IDENTIFIER LPAREN ( actual_parameters )? RPAREN</code></pre></p>
+                    <button aria-controls="ex5" aria-expanded="false" data-answer-target="ex5">Покажи отговора</button>
+                    <div class="answer" id="ex5">Нетерминали: function_call, actual_parameters. Терминали: AT, IDENTIFIER, LPAREN, RPAREN. Списъкът с аргументи е незадължителен.</div>
+                </div>
+                <h2>Контролни въпроси 1, 2 и 4</h2>
+                <div class="example">
+                    <p class="question">Защо граматиката на STUDENT е тип 2 по Хомски?</p>
+                    <button aria-controls="ex7" aria-expanded="false" data-answer-target="ex7">Покажи отговора</button>
+                    <div class="answer" id="ex7">В лявата страна на всяка продукция стои един нетерминал, а вдясно — низ от терминали и нетерминали.</div>
+                </div>
+                <div class="example">
+                    <p class="question">Какви символи има в окончателния текст на програма?</p>
+                    <button aria-controls="ex8" aria-expanded="false" data-answer-target="ex8">Покажи отговора</button>
+                    <div class="answer" id="ex8">Само терминални символи — нетерминалите трябва да са разгърнати.</div>
+                </div>
+                <div class="example">
+                    <p class="question">По какви два начина може да се представи извеждането на изречение от правилата на формална граматика?</p>
+                    <button aria-controls="ex9" aria-expanded="false" data-answer-target="ex9">Покажи отговора</button>
+                    <div class="answer" id="ex9">Последователно прилагане на правила и синтактично дърво (parse tree).</div>
+                </div>
+                <div class="pager"><a class="btn secondary" href="tree.html">← Назад</a><a class="btn" href="homework.html">Напред →</a></div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab7.js"></script>
+    </body>
+</html>
