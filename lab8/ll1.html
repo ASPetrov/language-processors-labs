@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>LL(1): как анализаторът избира? — Лабораторно 8</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 8 · Рекурсивно спускане</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="methods.html">Методи за анализ</a>
+                <a class="active" href="ll1.html">LL(1) и FIRST/FOLLOW</a>
+                <a class="" href="descent.html">Рекурсивно спускане</a>
+                <a class="" href="examples.html">Примери</a>
+                <a class="" href="tasks.html">Практически задачи</a>
+                <a class="" href="homework.html">Самопроверка и подготовка</a>
+            </nav>
+            <main>
+                <span class="tag">Упражнение 8</span>
+                <h1>LL(1): как анализаторът избира?</h1>
+                <p class="lead"><code>FIRST</code> и <code>FOLLOW</code> са практически инструменти за избор на клон и за пропускане на незадължителна част.</p>
+                <div class="hero">
+                    <h2>LL(1) на разбираем език</h2>
+                    <p>Първото <strong>L</strong> означава четене отляво надясно; второто <strong>L</strong> — ляво извеждане; <strong>1</strong> — решение с поглеждане една лексема напред.</p>
+                </div>
+                <h2>1. FIRST: с какво може да започне?</h2>
+                <section class="example">
+                    <h3>Еднозначен избор</h3>
+                    <pre><code>A : aB | cC</code></pre>
+                    <p><code>FIRST(aB) = {a}</code> и <code>FIRST(cC) = {c}</code>. Всяка възможна начална лексема посочва точно един клон.</p>
+                    <div class="decision lab-task" data-mode="alternatives">
+                        <label>Текущ терминал: <select><option value="a">a</option><option value="c">c</option><option value="x">x</option></select></label>
+                        <button class="decide">Избери клон</button>
+                        <div aria-live="polite" class="feedback"></div>
+                    </div>
+                </section>
+                <section class="example">
+                    <h3>Кога възниква конфликт?</h3>
+                    <pre><code>A : aB | aC</code></pre>
+                    <p>И двата клона започват с <code>a</code>. При поглеждане само на <code>a</code> не знаем кой да изберем. Това е <code>FIRST</code>/<code>FIRST</code> конфликт.</p>
+                    <div class="tablewrap">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><code>FIRST(aB)</code></td>
+                                    <td><strong>{ <code>a</code> }</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">∩ = { <code>a</code> } ≠ ∅</td>
+                                </tr>
+                                <tr>
+                                    <td><code>FIRST(aC)</code></td>
+                                    <td><strong>{ <code>a</code> }</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="note">
+                    <strong>Изискване 1:</strong>
+                    за две различни алтернативи
+                    <code>αᵢ</code>
+                    и
+                    <code>αⱼ</code>
+                    без общ допустим начален терминал трябва да е изпълнено
+                    <strong><code>FIRST(αᵢ)</code> ∩ <code>FIRST(αⱼ)</code> = ∅</strong>
+                    . При
+                    <code>ε</code>
+                    -алтернативи се взема предвид и
+                    <code>FOLLOW</code>
+                    (следващата част).
+                </div>
+                <div class="quiz" data-answer="1">
+                    <p class="question">За <code>A : bB | cC</code> какво се избира при текущ терминал <code>c</code>?</p>
+                    <label><input name="q2" type="radio" value="0"/><span> bB</span></label>
+                    <label><input name="q2" type="radio" value="1"/><span> cC</span></label>
+                    <label><input name="q2" type="radio" value="2"/><span> И двата клона</span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p><code>FIRST(bB)={b}</code>, <code>FIRST(cC)={c}</code>; множествата не се пресичат.</p>
+                    </details>
+                </div>
+                <h2>2. ε и FOLLOW: кога можем да пропуснем?</h2>
+                <p><code>ε</code> е празен низ: не се консумира входна лексема. <strong><code>FOLLOW(A)</code></strong> описва терминалите, които могат да се появят непосредствено след <code>A</code> в контекста на граматиката.</p>
+                <section class="example">
+                    <h3>Незадължителна част без конфликт</h3>
+                    <pre><code>S : A b
+A : a | ε</code></pre>
+                    <p><code>FIRST(a)={a}</code>; <code>FOLLOW(A)={b}</code>. Ако виждаме <code>a</code>, изпълняваме <code>A → a</code>. Ако виждаме <code>b</code>, избираме <code>A → ε</code>, за да оставим <code>b</code> за <code>S</code>.</p>
+                    <div class="decision lab-task" data-mode="epsilon">
+                        <label>Текущ терминал: <select><option value="a">a</option><option value="b">b</option><option value="x">x</option></select></label>
+                        <button class="decide">Какво прави A?</button>
+                        <div aria-live="polite" class="feedback"></div>
+                    </div>
+                </section>
+                <section class="example">
+                    <h3>Кога ε създава конфликт?</h3>
+                    <pre><code>S : A a
+A : a | ε</code></pre>
+                    <p>При текущо <code>a</code> анализаторът не може да реши дали да го консумира чрез <code>A → a</code>, или да пропусне <code>A</code> и да остави <code>a</code> за <code>S</code>.</p>
+                    <div class="tablewrap">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><code>FIRST(a)</code></td>
+                                    <td><strong>{ <code>a</code> }</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">∩ = { <code>a</code> } ≠ ∅</td>
+                                </tr>
+                                <tr>
+                                    <td><code>FOLLOW(A)</code></td>
+                                    <td><strong>{ <code>a</code> }</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="note">
+                    <strong>Изискване 2 (в контекста на <code>ε</code>):</strong>
+                    ако
+                    <code>A</code>
+                    може да бъде празен, началните терминали на непразните му алтернативи не трябва да се пресичат с терминалите, при които
+                    <code>A</code>
+                    може да приключи:
+                    <strong>(<code>FIRST(A)</code> − {<code>ε</code>}) ∩ <code>FOLLOW(A)</code> = ∅</strong>
+                    . Това е учебната форма на проверката; за общи граматики се проверяват и
+                    <code>FIRST</code>
+                    множествата на всички алтернативи.
+                </div>
+                <div class="quiz" data-answer="1">
+                    <p class="question">При <code>S : A b; A : a | ε</code> и текущ терминал <code>b</code> какво правим?</p>
+                    <label><input name="q3" type="radio" value="0"/><span> Консумираме <code>b</code> вътре в <code>A</code></span></label>
+                    <label><input name="q3" type="radio" value="1"/><span> Избираме <code>ε</code> и оставяме <code>b</code> за S</span></label>
+                    <label><input name="q3" type="radio" value="2"/><span> Грешка</span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p><code>b</code> е във <code>FOLLOW(A)</code>, затова <code>A</code> може да приключи без да консумира <code>b</code>.</p>
+                    </details>
+                </div>
+                <h2>3. Обобщение</h2>
+                <div class="tablewrap">
+                    <table>
+                        <tr>
+                            <th>Въпрос</th>
+                            <th>Помага</th>
+                        </tr>
+                        <tr>
+                            <td>Кой клон започва с текущата лексема?</td>
+                            <td><code>FIRST</code></td>
+                        </tr>
+                        <tr>
+                            <td>Може ли незадължителната част да приключи тук?</td>
+                            <td><code>FOLLOW</code>, когато има <code>ε</code></td>
+                        </tr>
+                        <tr>
+                            <td>Два клона изглеждат еднакво възможни?</td>
+                            <td>Конфликт: граматиката не е LL(1) в тази форма</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="methods.html">← Назад</a>
+                    <a class="btn" href="descent.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab8.js"></script>
+    </body>
+</html>

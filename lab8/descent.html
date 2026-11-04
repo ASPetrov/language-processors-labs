@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Рекурсивно спускане — Лабораторно 8</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 8 · Рекурсивно спускане</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="methods.html">Методи за анализ</a>
+                <a class="" href="ll1.html">LL(1) и FIRST/FOLLOW</a>
+                <a class="active" href="descent.html">Рекурсивно спускане</a>
+                <a class="" href="examples.html">Примери</a>
+                <a class="" href="tasks.html">Практически задачи</a>
+                <a class="" href="homework.html">Самопроверка и подготовка</a>
+            </nav>
+            <main>
+                <span class="tag">Упражнение 8</span>
+                <h1>Рекурсивно спускане</h1>
+                <p class="lead">Всяка синтактична функция разпознава един нетерминал.</p>
+                <div class="hero">
+                    <h2>Три правила за превод</h2>
+                    <p><strong>Терминал</strong> → <code>accept(…)</code> · <strong>Нетерминал</strong> → извикване на функция · <strong>Алтернатива</strong> → избор по текущата лексема.</p>
+                </div>
+                <section class="example">
+                    <h3>Проследи изпълнението</h3>
+                    <pre><code>A : abB</code></pre>
+                    <pre><code>void A() {
+    accept(a);
+    accept(b);
+    B();
+}</code></pre>
+                    <p>За демонстрацията приемаме <code>B : c</code> и вход <code>abc</code>. Това допълнение служи само за проследяване.</p>
+                    <div class="trace" data-trace="descent">
+                        <div aria-live="polite" class="trace-state"></div>
+                        <div class="actions">
+                            <button class="trace-next">Следваща стъпка →</button>
+                            <button class="trace-reset btn secondary">Отначало</button>
+                        </div>
+                    </div>
+                </section>
+                <h2>Синтактично дърво</h2>
+                <p>При низходящ анализ започваме от корена и разгръщаме нетерминалите. Схематичното дърво по-долу съответства на демонстрационната граматика <code>A : abB; B : c</code>.</p>
+                <svg aria-labelledby="parse-tree-title parse-tree-desc" role="img" style="display:block; width:100%; max-width:600px; height:auto; margin:20px auto; background:#f1f1f1; border-radius:6px;" viewbox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+<title id="parse-tree-title">
+        Дърво на извеждането
+    </title>
+<desc id="parse-tree-desc">
+        A се разгръща в a, b и B.
+        B се разгръща в c.
+        Полученият низ е abc.
+    </desc>
+<!-- Връзки: A към a, b и B -->
+<g fill="none" stroke="#555" stroke-width="2">
+<line x1="300" x2="130" y1="65" y2="125"></line>
+<line x1="300" x2="300" y1="65" y2="125"></line>
+<line x1="300" x2="470" y1="65" y2="125"></line>
+<!-- B към c -->
+<line x1="470" x2="470" y1="165" y2="205"></line>
+</g>
+<!-- Нетерминал A -->
+<rect fill="#d9eee1" height="40" rx="6" stroke="#04aa6d" stroke-width="2" width="60" x="270" y="25"></rect>
+<text font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle" x="300" y="51">A</text>
+<!-- Терминал a -->
+<rect fill="white" height="40" rx="6" stroke="#777" stroke-width="2" width="60" x="100" y="125"></rect>
+<text font-family="monospace" font-size="18" text-anchor="middle" x="130" y="151">a</text>
+<!-- Терминал b -->
+<rect fill="white" height="40" rx="6" stroke="#777" stroke-width="2" width="60" x="270" y="125"></rect>
+<text font-family="monospace" font-size="18" text-anchor="middle" x="300" y="151">b</text>
+<!-- Нетерминал B -->
+<rect fill="#d9eee1" height="40" rx="6" stroke="#04aa6d" stroke-width="2" width="60" x="440" y="125"></rect>
+<text font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle" x="470" y="151">B</text>
+<!-- Терминал c -->
+<rect fill="white" height="40" rx="6" stroke="#777" stroke-width="2" width="60" x="440" y="205"></rect>
+<text font-family="monospace" font-size="18" text-anchor="middle" x="470" y="231">c</text>
+</svg>
+                <h2>Какво прави accept()?</h2>
+                <pre><code>void accept(TokenType expected) {
+    if (currentToken.getTokenType() != expected) {
+        throw new SyntaxException(...);
+    }
+    currentToken = lexer.nextToken();
+}</code></pre>
+                <section class="example">
+                    <h3>Защо лявата рекурсия е проблем?</h3>
+                    <pre><code>A : Ab</code></pre>
+                    <p>Наивна реализация би извикала <code>A()</code> отново, преди да е прочела терминал. Това води до неограничена рекурсия.</p>
+                    <div class="trace" data-trace="left">
+                        <div aria-live="polite" class="trace-state"></div>
+                        <div class="actions">
+                            <button class="trace-next">Следваща стъпка →</button>
+                            <button class="trace-reset btn secondary">Отначало</button>
+                        </div>
+                    </div>
+                </section>
+                <div class="quiz" data-answer="1">
+                    <p class="question">Как се разпознава нетерминал <code>B</code> в учебния псевдокод?</p>
+                    <label><input name="q4" type="radio" value="0"/><span> <code>accept(B)</code></span></label>
+                    <label><input name="q4" type="radio" value="1"/><span> <code>B()</code></span></label>
+                    <label><input name="q4" type="radio" value="2"/><span> <code>currentToken</code>++</span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p>Нетерминалите се разпознават чрез съответните синтактични функции.</p>
+                    </details>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="ll1.html">← Назад</a>
+                    <a class="btn" href="examples.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab8.js"></script>
+    </body>
+</html>

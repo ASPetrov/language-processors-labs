@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Контролни въпроси и подготовка — Лабораторно 8</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 8 · Рекурсивно спускане</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a class="" href="index.html">Начало</a>
+                <a class="" href="methods.html">Методи за анализ</a>
+                <a class="" href="ll1.html">LL(1) и FIRST/FOLLOW</a>
+                <a class="" href="descent.html">Рекурсивно спускане</a>
+                <a class="" href="examples.html">Примери</a>
+                <a class="" href="tasks.html">Практически задачи</a>
+                <a class="active" href="homework.html">Самопроверка и подготовка</a>
+            </nav>
+            <main>
+                <span class="tag">Упражнение 8</span>
+                <h1>Контролни въпроси и подготовка</h1>
+                <div class="hero">
+                    <h2>Контролни въпроси от ръководството</h2>
+                    <p>Първо отговори със свои думи. После отвори краткия ориентир.</p>
+                </div>
+                <section class="example">
+                    <p class="question">1. Какви са общите методи за синтактичен анализ и какви са разликите между тях?</p>
+                    <button aria-controls="control0" aria-expanded="false" data-answer-target="control0" type="button">Покажи отговора</button>
+                    <div class="answer" id="control0">
+                        <p>Низходящ: от стартов символ към входен низ. Възходящ: от входен низ към стартов символ чрез редукции.</p>
+                    </div>
+                </section>
+                <section class="example">
+                    <p class="question">2. Какво означава LL(1)?</p>
+                    <button aria-controls="control1" aria-expanded="false" data-answer-target="control1" type="button">Покажи отговора</button>
+                    <div class="answer" id="control1">
+                        <p>Четене на входа отляво надясно, ляво извеждане и избор чрез една лексема поглеждане напред.</p>
+                    </div>
+                </section>
+                <section class="example">
+                    <p class="question">3. Може ли да се реализира рекурсивно спускане за правила с лява рекурсия, т.е. <code>A : Ab</code>? Обосновете.</p>
+                    <button aria-controls="control2" aria-expanded="false" data-answer-target="control2" type="button">Покажи отговора</button>
+                    <div class="answer" id="control2">
+                        <p>Не директно: <code>A()</code> би извиквала <code>A()</code> преди да консумира терминал, което води до безкрайна рекурсия. Нужна е подходяща трансформация на граматиката.</p>
+                    </div>
+                </section>
+                <h2>Допълнителна самопроверка</h2>
+                <div class="quiz" data-answer="0">
+                    <p class="question">Кога <code>FIRST</code>/<code>FIRST</code> е конфликт?</p>
+                    <label><input name="q7" type="radio" value="0"/><span> Когато алтернативите имат общ начален терминал</span></label>
+                    <label><input name="q7" type="radio" value="1"/><span> Когато терминалите са различни</span></label>
+                    <label><input name="q7" type="radio" value="2"/><span> Когато има само едно правило</span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p>Общ начален терминал прави избора по една лексема нееднозначен.</p>
+                    </details>
+                </div>
+                <div class="quiz" data-answer="1">
+                    <p class="question">Какво означава <code>ε</code>?</p>
+                    <label><input name="q8" type="radio" value="0"/><span> Грешка</span></label>
+                    <label><input name="q8" type="radio" value="1"/><span> Празен низ</span></label>
+                    <label><input name="q8" type="radio" value="2"/><span> Край на файла</span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p><code>ε</code> означава, че конструкцията може да не консумира терминал.</p>
+                    </details>
+                </div>
+                <div class="quiz" data-answer="2">
+                    <p class="question">Коя конструкция съответства на <code>(cB)?</code>?</p>
+                    <label><input name="q9" type="radio" value="0"/><span> <code>while</code></span></label>
+                    <label><input name="q9" type="radio" value="1"/><span> <code>switch</code></span></label>
+                    <label><input name="q9" type="radio" value="2"/><span> <code>if</code></span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p><code>?</code> означава нула или едно изпълнение.</p>
+                    </details>
+                </div>
+                <div class="quiz" data-answer="0">
+                    <p class="question">Какво става при <code>accept(a)</code>, ако текущата лексема не е <code>a</code>?</p>
+                    <label><input name="q10" type="radio" value="0"/><span> Синтактична грешка</span></label>
+                    <label><input name="q10" type="radio" value="1"/><span> Преминава към следващата без проверка</span></label>
+                    <label><input name="q10" type="radio" value="2"/><span> Автоматично избира <code>ε</code></span></label>
+                    <button class="check">Провери</button>
+                    <div class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p>accept сравнява очаквания терминал с текущия и съобщава несъответствие.</p>
+                    </details>
+                </div>
+                <h2>Подготовка за упражнение 9</h2>
+                <p>Следващото занятие преминава от схематичните функции към реалния анализатор за STUDENT.</p>
+                <ol>
+                    <li>Прегледай граматиката на STUDENT.</li>
+                    <li>Разбери защо <code>currentToken</code> е лексема с тип, а не символ от тип <code>char</code>.</li>
+                    <li>Прегледай <code>accept(TokenType)</code> и преминаването към следващата лексема.</li>
+                    <li>Разпознай връзката между нетерминал и метод в <code>ParserImpl.java</code>.</li>
+                </ol>
+                <div class="pager">
+                    <a class="btn secondary" href="tasks.html">← Назад</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>
