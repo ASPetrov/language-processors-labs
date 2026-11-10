@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>ЕП Lab 10 — Пример 1 — променлива и main</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 10</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a href="index.html">Въведение</a>
+                <a href="concept.html">Абстрактно синтактично дърво</a>
+                <a href="structure.html">Структура и видове възли</a>
+                <a class="active" href="example1.html">Пример 1 — променлива и main</a>
+                <a href="example2.html">Пример 2 — цикъл while</a>
+                <a href="explore.html">Интерактивно разчитане на AST</a>
+                <a href="tasks.html">Задачи</a>
+                <a href="quiz.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 10</span>
+                <h1>Пример 1 — променлива и main</h1>
+                <p class="lead">Разгледайте дървото и връзките между възлите.</p>
+                <details>
+                    <summary>Покажи краткия входен код (STUDENT)</summary>
+                    <pre><code>program {
+  int i = 10;
+  main() -&gt; void {
+    print(i);
+  }
+}</code></pre>
+                </details>
+                <h2>Дърво на програмата</h2>
+                <div class="example">
+                    <div aria-label="Абстрактно синтактично дърво — хоризонтално превъртане" class="tree-complete" id="ast-tree" role="group" tabindex="0">
+                        <ul>
+                            <li>
+                                <button aria-controls="nodeInfo" aria-label="program" aria-pressed="false" class="nonterminal" data-depth="0" data-node="program" type="button">program</button>
+                                <ul>
+                                    <li>
+                                        <button aria-controls="nodeInfo" aria-label="variable definition" aria-pressed="false" class="nonterminal" data-depth="1" data-node="variable definition" type="button">variable definition</button>
+                                        <ul>
+                                            <li><button aria-controls="nodeInfo" aria-label="type: int" aria-pressed="false" class="nonterminal" data-depth="2" data-node="type: int" type="button">type: int</button></li>
+                                            <li>
+                                                <button aria-controls="nodeInfo" aria-label="assignment" aria-pressed="false" class="nonterminal" data-depth="2" data-node="assignment" type="button">assignment</button>
+                                                <ul>
+                                                    <li><button aria-controls="nodeInfo" aria-label="variable: i" aria-pressed="false" class="nonterminal" data-depth="3" data-node="variable: i" type="button">variable: i</button></li>
+                                                    <li><button aria-controls="nodeInfo" aria-label="int 10" aria-pressed="false" class="nonterminal" data-depth="3" data-node="int 10" type="button">int 10</button></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <button aria-controls="nodeInfo" aria-label="function: main" aria-pressed="false" class="nonterminal" data-depth="1" data-node="function: main" type="button">function: main</button>
+                                        <ul>
+                                            <li><button aria-controls="nodeInfo" aria-label="void" aria-pressed="false" class="nonterminal" data-depth="2" data-node="void" type="button">void</button></li>
+                                            <li>
+                                                <button aria-controls="nodeInfo" aria-label="block" aria-pressed="false" class="nonterminal" data-depth="2" data-node="block" type="button">block</button>
+                                                <ul>
+                                                    <li>
+                                                        <button aria-controls="nodeInfo" aria-label="print" aria-pressed="false" class="nonterminal" data-depth="3" data-node="print" type="button">print</button>
+                                                        <ul>
+                                                            <li>
+                                                                <button aria-controls="nodeInfo" aria-label="actual parameters" aria-pressed="false" class="nonterminal" data-depth="4" data-node="actual parameters" type="button">actual parameters</button>
+                                                                <ul>
+                                                                    <li><button aria-controls="nodeInfo" aria-label="variable: i" aria-pressed="false" class="nonterminal" data-depth="5" data-node="variable: i" type="button">variable: i</button></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div aria-atomic="true" aria-live="polite" class="feedback" id="nodeInfo">Изберете възел, за да видите ролята му.</div>
+                </div>
+                <h2>Какво виждаме?</h2>
+                <p>Глобална дефиниция на променлива от тип <code>int</code>, присвояване на 10, функция <code>main</code> с резултат <code>void</code> и <code>print</code> с актуален параметър <code>i</code>.</p>
+                <div class="pager">
+                    <a class="btn secondary" href="structure.html">← Назад</a>
+                    <a class="btn" href="example2.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab10.js"></script>
+    </body>
+</html>

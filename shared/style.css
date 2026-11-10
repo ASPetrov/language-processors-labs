@@ -451,6 +451,69 @@ details[open] > summary {
     outline-offset: 3px;
 }
 
+/* Shared syntax tree presentation, used by labs 7 and 10. */
+.tree-complete .nonterminal {
+    padding: 5px 9px;
+    font: inherit;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+.tree-complete .nonterminal {
+    max-width: none;
+}
+.tree-complete > ul {
+    width: max-content;
+    min-width: 100%;
+}
+.tree-complete .nonterminal.selected {
+    outline: 3px solid #1976b9;
+    outline-offset: 2px;
+}
+.tree-complete {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 16px;
+    border-radius: 5px;
+    background: white;
+    font: 15px/1.5 Menlo, Consolas, Monaco, monospace;
+}
+.tree-complete ul {
+    list-style: none;
+    padding-left: 24px;
+    margin: 0;
+    border-left: 1px solid #b6c4bc;
+}
+.tree-complete > ul {
+    border: 0;
+    padding: 0;
+}
+.tree-complete li {
+    position: relative;
+    padding: 6px 0 6px 12px;
+    white-space: nowrap;
+}
+.tree-complete li::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 22px;
+    width: 12px;
+    border-top: 1px solid #b6c4bc;
+}
+.tree-complete > ul > li::before {
+    display: none;
+}
+.tree-complete .terminal {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 5px 9px;
+    background: var(--light);
+}
+.tree-complete small {
+    color: #59665e;
+    margin-left: 8px;
+}
+
 @media (max-width: 800px) {
     .layout {
         display: block;

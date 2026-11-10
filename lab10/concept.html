@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>ЕП Lab 10 — Абстрактно синтактично дърво</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 10</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a href="index.html">Въведение</a>
+                <a class="active" href="concept.html">Абстрактно синтактично дърво</a>
+                <a href="structure.html">Структура и видове възли</a>
+                <a href="example1.html">Пример 1 — променлива и main</a>
+                <a href="example2.html">Пример 2 — цикъл while</a>
+                <a href="explore.html">Интерактивно разчитане на AST</a>
+                <a href="tasks.html">Задачи</a>
+                <a href="quiz.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 10</span>
+                <h1>Абстрактно синтактично дърво</h1>
+                <p class="lead"><code>AST</code> (Abstract Syntax Tree) е йерархично представяне на синтактичната структура на входната програма, което се построява в резултат на синтактичния анализ.</p>
+                <div class="pipeline">
+                    <span class="step">Входна програма</span>
+                    <span class="pipeline-item"><span class="arrow">→</span><span class="step">Синтактичен анализ</span></span>
+                    <span class="pipeline-item"><span class="arrow">→</span><span class="step">AST</span></span>
+                    <span class="pipeline-item"><span class="arrow">→</span><span class="step">Следващи етапи</span></span>
+                </div>
+                <p>Възлите представят синтактични конструкции и операции; наследниците им съдържат съставните части. Така програмата се разглежда като йерархия, а не като линеен текст.</p>
+                <div class="example">
+                    <p class="question">Защо дървото е удобно за междинно представяне?</p>
+                    <button aria-controls="answer-1" aria-expanded="false" data-answer-target="answer-1" type="button">Покажи отговора</button>
+                    <div class="answer" id="answer-1">
+                        Защото показва структурните отношения между конструкциите и позволява последващи обработки да обхождат конкретни възли и поддървета.
+                    </div>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="index.html">← Назад</a>
+                    <a class="btn" href="structure.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>
