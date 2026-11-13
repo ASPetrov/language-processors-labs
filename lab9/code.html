@@ -49,12 +49,12 @@
                 <p>В студентския файл методът <code>whileStatement()</code> съдържа <code>ToDo</code> маркери. Сравни последователността на символите в граматичното правило с местата за извиквания в метода.</p>
                 <pre><code>void whileStatement() {
         Token token = currentToken;
-        /* ToDo handle symbol */
-        /* ToDo handle symbol */
-        /* ToDo handle symbol */
+        accept(TokenType.WHILE);
+        accept(TokenType.LPAREN);
+        expression();
         ExpressionNode expressionNode = (ExpressionNode) currentNode;
-        /* ToDo handle symbol */
-        /* ToDo handle symbol */
+        accept(TokenType.RPAREN);
+        block();
         BlockNode blockNode = (BlockNode) currentNode;
         currentNode = new WhileStatementNode(token, expressionNode, blockNode);
     }</code></pre>
@@ -63,10 +63,10 @@
                 <p>При рекурсивното спускане изборът се прави по текущата лексема. В студентския код проверката използва <code>isCompoundStatementTerminal()</code>; ако е съставен оператор, се избира съответният метод, иначе — прост оператор, следван от точка и запетая.</p>
                 <pre><code>void statement() {
         if (TokenType.isCompoundStatementTerminal(currentToken.getTokenType())) {
-            /* ToDo handle symbol */
+            compoundStatement();
         } else {
-            /* ToDo handle symbol */
-            /* ToDo handle symbol */
+            simpleStatement();
+            accept(TokenType.SEMICOLON);
         }
     }</code></pre>
                 <div class="quiz" data-answer="b">
