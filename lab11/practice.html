@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Задачи — Лабораторно 11</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 11</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a href="index.html">Начало</a>
+                <a href="checks.html">Семантични проверки</a>
+                <a href="tables.html">Символни таблици</a>
+                <a href="example.html">Пример и видимост</a>
+                <a class="active" href="practice.html">Задачи</a>
+                <a href="quiz.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 11</span>
+                <h1>Задачи</h1>
+                <p class="lead">Построй таблиците и обоснови коя проверка е необходима.</p>
+                <section class="example">
+                    <h3>1. Декларации и видимост</h3>
+                    <pre><code>program {
+
+    int level = 2;
+
+    twice(int value) -&gt; int {
+        int result = value + value;
+        return result;
+    }
+
+    main() -&gt; void {
+        int level = 7;
+        print(@twice(level));
+    }
+}</code></pre>
+                    <p>Запиши имената, видовете и типовете в трите таблици. Коя <code>level</code> се използва при извикването? Видима ли е <code>result</code> в <code>main</code>?</p>
+                    <button aria-controls="scope-solution" aria-expanded="false" data-answer-target="scope-solution" type="button">Покажи примерно решение</button>
+                    <div class="answer" id="scope-solution">
+                        <ul>
+                            <li>Глобална: <code>level: int</code>, <code>twice: (int) → int</code>, <code>main: () → void</code>.</li>
+                            <li><code>twice</code>: параметър <code>value: int</code> и локална <code>result: int</code>.</li>
+                            <li><code>main</code>: локална <code>level: int</code>; тя се използва за аргумента.</li>
+                        </ul>
+                        <p><code>result</code> не се вижда от <code>main</code>. Двете функции имат отделни локални таблици с общ глобален родител.</p>
+                    </div>
+                </section>
+                <section class="example">
+                    <h3>2. Разпознай грешката</h3>
+                    <p>Разгледай фрагментите независимо, всеки в тялото на <code>main</code>. Определи защо не минават семантичните проверки.</p>
+                    <pre><code>int count = true;</code></pre>
+                    <pre><code>int total = 4;
+int total = 9;</code></pre>
+                    <pre><code>print(missing);</code></pre>
+                    <button aria-controls="errors-solution" aria-expanded="false" data-answer-target="errors-solution" type="button">Покажи примерно решение</button>
+                    <div class="answer" id="errors-solution">
+                        <ol>
+                            <li>Несъвместими типове: на <code>int</code> се присвоява <code>boolean</code>.</li>
+                            <li>Две декларации на <code>total</code> в един и същ блок.</li>
+                            <li>Няма достъпна декларация на <code>missing</code>.</li>
+                        </ol>
+                    </div>
+                </section>
+                <div class="pager">
+                    <a class="btn secondary" href="example.html">← Назад</a>
+                    <a class="btn" href="quiz.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+    </body>
+</html>

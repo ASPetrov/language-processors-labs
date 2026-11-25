@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>Символни таблици и области на видимост — Лабораторно 11</title>
+        <link href="../shared/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="top">
+            <div class="brand">
+                ЕП
+                <small>Лабораторно упражнение 11</small>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Съдържание">
+                <h3>Съдържание</h3>
+                <a href="index.html">Начало</a>
+                <a href="checks.html">Семантични проверки</a>
+                <a class="active" href="tables.html">Символни таблици</a>
+                <a href="example.html">Пример и видимост</a>
+                <a href="practice.html">Задачи</a>
+                <a href="quiz.html">Самопроверка</a>
+            </nav>
+            <main>
+                <span class="tag">Лабораторно 11</span>
+                <h1>Символни таблици и области на видимост</h1>
+                <p class="lead">Запис за всяка декларация и връзка към обхващащия блок.</p>
+                <div class="hero">
+                    <h2>Какво описва един запис?</h2>
+                    <p>Символната таблица свързва име с информацията, необходима за анализа и генерирането на код.</p>
+                </div>
+                <div class="tablewrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">За какво</th>
+                                <th scope="col">Примерни данни</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Променлива</td>
+                                <td>Име, тип, блок и ниво на вложеност; по-късно — адрес или отместване.</td>
+                            </tr>
+                            <tr>
+                                <td>Масив</td>
+                                <td>Тип на елементите и информация за размерностите и границите.</td>
+                            </tr>
+                            <tr>
+                                <td>Функция</td>
+                                <td>Параметри и техните типове; тип на резултата.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Таблицата описва декларациите, а не текущите стойности на променливите при изпълнение.</p>
+                <h2>Две основни операции</h2>
+                <ul>
+                    <li><strong>Добавяне (Insert):</strong> добавяме запис за нова декларация в текущия блок.</li>
+                    <li><strong>Търсене (Lookup):</strong> намираме достъпната декларация по име. Често се използва хеш таблица за ефективно търсене.</li>
+                </ul>
+                <h2>Декларации в примера</h2>
+                <p>Проследи изграждането на символната таблица на <code>main</code>. Четирите декларации са в един и същ блок; втората декларация на <code>score</code> е семантична грешка.</p>
+                <pre><code>program {
+    main() -&gt; void {
+        int score = 6;
+        boolean ready = true;
+        int score = 9;
+        char mark = 'a';
+    }
+}</code></pre>
+                <section class="example" id="table-demo">
+                    <h2>Изгради таблицата стъпка по стъпка</h2>
+                    <p>Обработваме само декларации в един и същ блок — тялото на <code>main</code>. При повторно име запазваме първия запис.</p>
+                    <p id="demo-progress">Начало — таблицата е празна.</p>
+                    <pre><code id="demo-declaration">Натисни „Напред“ за първата декларация.</code></pre>
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Име</th>
+                                    <th scope="col">Вид</th>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Блок</th>
+                                </tr>
+                            </thead>
+                            <tbody id="demo-entries">
+                                <tr>
+                                    <td colspan="4">Няма записи.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div aria-atomic="true" aria-live="polite" class="note" id="demo-feedback">
+                        Предстоят четири декларации.
+                    </div>
+                    <div class="actions">
+                        <button class="btn secondary" disabled="" id="demo-prev" type="button">← Назад</button>
+                        <button class="btn" id="demo-next" type="button">Напред →</button>
+                        <button class="btn secondary" id="demo-reset" type="button">Отначало</button>
+                    </div>
+                    <noscript>
+                        <p>За демонстрацията е необходим JavaScript. При ново име се добавя запис; повторна декларация в същия блок е грешка.</p>
+                    </noscript>
+                </section>
+                <h2>В кой блок търсим?</h2>
+                <ol>
+                    <li>Проверяваме текущия блок.</li>
+                    <li>При липса на запис продължаваме към обхващащия блок.</li>
+                    <li>Ако стигнем отвъд глобалния блок без успех, името е недекларирано.</li>
+                </ol>
+                <div class="note">
+                    <p>Едно и също име може да има различни декларации в различни блокове. Вътрешната декларация <strong>припокрива</strong> външната. Повторното деклариране в <strong>един и същ блок</strong> е грешка.</p>
+                </div>
+                <div class="quiz" data-answer="1">
+                    <p class="question">За проверката на <code>@add(a, b)</code> каква информация е нужна за <code>add</code>?</p>
+                    <label><input name="q2" type="radio" value="0"/><span>Броят символи в името</span></label>
+                    <label><input name="q2" type="radio" value="1"/><span>Броят и типовете на параметрите и типът на резултата</span></label>
+                    <label><input name="q2" type="radio" value="2"/><span>Текущите стойности на всички глобални променливи</span></label>
+                    <button class="check" type="button">Провери</button>
+                    <div aria-live="polite" class="feedback"></div>
+                    <details>
+                        <summary>Обяснение</summary>
+                        <p>Записът за функцията описва нейния интерфейс. Стойностите на променливите при изпълнение не заместват типовете на параметрите.</p>
+                    </details>
+                </div>
+                <div class="pager">
+                    <a class="btn secondary" href="checks.html">← Назад</a>
+                    <a class="btn" href="example.html">Напред →</a>
+                </div>
+            </main>
+        </div>
+        <script src="../shared/script.js"></script>
+        <script src="lab11.js"></script>
+    </body>
+</html>
