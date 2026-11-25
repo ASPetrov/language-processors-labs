@@ -21,7 +21,6 @@
                 <a href="structure.html">Структура и видове възли</a>
                 <a class="active" href="example1.html">Пример 1 — променлива и main</a>
                 <a href="example2.html">Пример 2 — цикъл while</a>
-                <a href="explore.html">Интерактивно разчитане на AST</a>
                 <a href="tasks.html">Задачи</a>
                 <a href="quiz.html">Самопроверка</a>
             </nav>
@@ -29,8 +28,8 @@
                 <span class="tag">Лабораторно 10</span>
                 <h1>Пример 1 — променлива и main</h1>
                 <p class="lead">Разгледайте дървото и връзките между възлите.</p>
-                <details>
-                    <summary>Покажи краткия входен код (STUDENT)</summary>
+                <details open>
+                    <summary>Кратък входен код (STUDENT)</summary>
                     <pre><code>program {
   int i = 10;
   main() -&gt; void {
@@ -84,7 +83,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div aria-atomic="true" aria-live="polite" class="feedback" id="nodeInfo">Изберете възел, за да видите ролята му.</div>
+                    <div aria-atomic="true" aria-live="polite" class="feedback" id="nodeInfo">
+                        Изберете възел, за да видите ролята му, свързаните правила на STUDENT и наследниците му.
+                    </div>
                 </div>
                 <h2>Какво виждаме?</h2>
                 <p>Глобална дефиниция на променлива от тип <code>int</code>, присвояване на 10, функция <code>main</code> с резултат <code>void</code> и <code>print</code> с актуален параметър <code>i</code>.</p>

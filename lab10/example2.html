@@ -21,7 +21,6 @@
                 <a href="structure.html">Структура и видове възли</a>
                 <a href="example1.html">Пример 1 — променлива и main</a>
                 <a class="active" href="example2.html">Пример 2 — цикъл while</a>
-                <a href="explore.html">Интерактивно разчитане на AST</a>
                 <a href="tasks.html">Задачи</a>
                 <a href="quiz.html">Самопроверка</a>
             </nav>
@@ -29,8 +28,8 @@
                 <span class="tag">Лабораторно 10</span>
                 <h1>Пример 2 — цикъл while</h1>
                 <p class="lead">Разгледайте дървото и връзките между възлите.</p>
-                <details>
-                    <summary>Покажи краткия входен код (STUDENT)</summary>
+                <details open>
+                    <summary>Кратък входен код (STUDENT)</summary>
                     <pre><code>program {
   int i = 1;
   main() -&gt; void {
@@ -117,13 +116,30 @@
                             </li>
                         </ul>
                     </div>
-                    <div aria-atomic="true" aria-live="polite" class="feedback" id="nodeInfo">Изберете възел, за да видите ролята му.</div>
+                    <div aria-atomic="true" aria-live="polite" class="feedback" id="nodeInfo">
+                        Изберете възел, за да видите ролята му, свързаните правила на STUDENT и наследниците му.
+                    </div>
                 </div>
                 <h2>Какво виждаме?</h2>
                 <p>Цикълът <code>while</code> има условие <code>less</code> (<code>i &lt; 11</code>) и блок с <code>print</code> и <code>assignment</code>. При увеличаването на <code>i</code> се използва <code>addition</code>.</p>
+                <h2 id="self-check">Самопроверка</h2>
+                <div class="example">
+                    <p class="question">Кои са двете непосредствени части на <code>while</code>?</p>
+                    <button aria-controls="answer-1" aria-expanded="false" data-answer-target="answer-1" type="button">Покажи отговора</button>
+                    <div class="answer" id="answer-1">
+                        Условието less и тялото block.
+                    </div>
+                </div>
+                <div class="example">
+                    <p class="question">Къде се намира <code>addition</code>?</p>
+                    <button aria-controls="answer-2" aria-expanded="false" data-answer-target="answer-2" type="button">Покажи отговора</button>
+                    <div class="answer" id="answer-2">
+                        В дясната страна на assignment, вложен в тялото на while.
+                    </div>
+                </div>
                 <div class="pager">
                     <a class="btn secondary" href="example1.html">← Назад</a>
-                    <a class="btn" href="explore.html">Напред →</a>
+                    <a class="btn" href="tasks.html">Напред →</a>
                 </div>
             </main>
         </div>
